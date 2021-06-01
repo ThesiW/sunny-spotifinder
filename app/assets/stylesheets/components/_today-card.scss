@@ -1,0 +1,30 @@
+.today-card {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+  box-shadow: 0px 4px 13px -1px #D3D4DA;
+  height: 37vh;
+  border-radius: 8px;
+  margin-right: 50px;
+  position: relative;
+}
+
+.today-card h3 {
+  display: flex;
+  justify-content: center;
+  font-size: 21px;
+  padding-top: 10px;
+  font-weight: 600;
+}
+
+.today-card p {
+  font-weight: 100;
+  display: flex;
+  justify-content: center;
+  font-family: Montserrat;
+  padding: 0px;
+}
+
+.sun span {
+  content: "\2600";
+}

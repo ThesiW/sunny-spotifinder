@@ -1,1 +1,68 @@
-<%= link_to 'Get started', spots_path  %>
+
+<body>
+
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-2">
+    <%= link_to "#", class: "avatar-bordered" do %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ThesiW", height: '100%' %>
+    <% end %>
+  </div>
+  <h2 class="d-flex justify-content-start pl-3">Welcome!</h2>
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12 col-md-12 offset-md-3">
+        <div class="today-card container grid-container mr-3">
+          <div class="">
+            <!-- Today's Date -->
+            <h3>Friday, June 4th</h3>
+            <span class="sun d-flex justify-content-center pt-1" style="font-size: 50px;">&#9728;<p class="pl-3 m-0">23°C</p></span>
+             <!--Temperature Today   -->
+          </div>
+          <div class="weather-cards d-flex justify-content-between">
+            <div class="weather-card">
+              <h3>Sat</h3>
+              <span class="rain d-flex justify-content-center" style="font-size: 50px;">&#9730;</span>
+              <p class="m-0">23°C</p>
+            </div>
+            <div class="weather-card">
+              <h3>Sun</h3>
+              <span class="cloud d-flex justify-content-center" style="font-size: 50px; display: block;">&#9729;</span>
+              <p class="m-0">18°C</p>
+            </div>
+            <div class="weather-card">
+              <h3>Mon</h3>
+              <span class="cloud d-flex justify-content-center" style="font-size: 50px; display: block;">&#9728;</span>
+              <p class="m-0">12°C</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="button-card container grid-container mr-3 mt-3">
+          <h3 class="mb-0">Never miss the sun.</h3>
+          <h3 class="pt-0 mb-3">Let's find a sunny spot!</h3>
+          <a class="btn-main mb-1 d-flex justify-content-center mb-3" href="#">Show me all sunny spots!</a>
+          <a class="btn-main mb-1 d-flex justify-content-center" href="#">Check specific spot</a>
+<!--      <a class="btn-navy mb-1 d-flex justify-content-center" href="#">Check specific spot</a>
+
+          use JavaScript to make search bar and navy button appear
+           Form not done
+
+          <div class="form-home form-inline">
+            <%#= simple_form_for @spot, do |f| %>
+              <%#= f.input :address, placeholder: "Enter location" %>
+              <%#= f.submit class: 'btn btn-navy' %>
+            <%# end %>
+          </div>
+
+
+ -->
+
+     </div>
+    </div>
+  </div>
+</body>
+
+<%= link_to 'See all spot', spots_path  %>
+
