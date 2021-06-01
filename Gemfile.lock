@@ -102,7 +102,6 @@ GEM
     io-wait (0.1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
-    json (1.8.6)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -128,8 +127,6 @@ GEM
     nokogiri (1.11.6)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    open-weather (0.12.0)
-      json (~> 1)
     orm_adapter (0.5.0)
     pg (1.2.3)
     pry (0.13.1)
@@ -258,7 +255,6 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
-  open-weather
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails
@@ -280,4 +276,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.2.18
+   2.2.19
