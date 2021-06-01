@@ -1,0 +1,35 @@
+.weather-card {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+  box-shadow: 0px 4px 13px -1px #D3D4DA;
+  height: 25vh;
+  border-radius: 8px;
+  bottom: 0;
+  left: 10px;
+  top: 110px;
+  width: 30%;
+  height: 19vh;
+  display: block;
+}
+
+.weather-card p {
+  font-size: 24px;
+}
+
+.weather-card h3 {
+  font-size: 50px;
+}
+
+.fas-weather {
+  font-size: 50px;
+}
+
+.cloud span {
+  content: "\2601";
+}
+
+.rain span {
+  content: "\2602";
+}
+

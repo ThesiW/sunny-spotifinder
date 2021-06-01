@@ -11,11 +11,9 @@ Rails.application.routes.draw do
     collection do
       get :randomise
     end
-
   end
 
   resources :bookmarks, only: [:index, :update]
   resources :favourites, only: [:index, :update]
   resources :visits, only: [:index]
-
 end
