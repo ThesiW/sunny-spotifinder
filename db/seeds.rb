@@ -28,14 +28,15 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 
 10.times do
   spot = Spot.new(
+    name: Faker::Restaurant.name,
     address: "Stockholm",
     rating: rand(1..5),
-    description: Faker::Restaurant.name,
+    description: "Great spot!",
     link: "https://www.kvarnen.com/",
     sun_start: 0635,
     sun_end: 2035
     )
-spot.photo.attach(io: URI.open('https://unsplash.com/photos/Ciqxn7FE4vE'), filename: 'picture', content_type: 'image/jpg')
+spot.photo.attach(io: URI.open('https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80'), filename: 'picture', content_type: 'image/jpg')
 spot.save
 end
 

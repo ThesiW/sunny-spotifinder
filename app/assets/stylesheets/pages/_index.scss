@@ -1,2 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.index-body {
+  background-color: #FFFEF9;
+}
+
+.btn-navy-index {
+  color: white;
+  background-color: #243860;
+  border: 2px solid #243860;
+  border-radius: 4px;
+  padding: 8px;
+  text-transform: uppercase;
+  margin-top: 50px;
+  width: 80%;
+}
+
