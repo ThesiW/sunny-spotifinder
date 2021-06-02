@@ -19,7 +19,7 @@ export function fetchWeather(cityName) {
       const today  = new Date();
       const localOffset = data.timezone + today.getTimezoneOffset() * 60;
       const localDate = new Date(today.setUTCSeconds(localOffset));
-      const options = {weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+      const options = {weekday: 'long', month: 'long', day: 'numeric'};
       const formattedDate = localDate.toLocaleDateString('en-us',options);
       date.innerText = formattedDate;
       description.innerText =data.weather[0].description;
