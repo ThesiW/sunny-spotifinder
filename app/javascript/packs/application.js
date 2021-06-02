@@ -29,7 +29,9 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 
  import {fetchWeather} from '../component/index';
-// fetchWeather()
+
+import {myClick} from './component/search'
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
