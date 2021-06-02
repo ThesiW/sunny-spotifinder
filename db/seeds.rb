@@ -28,9 +28,10 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 
 10.times do
   spot = Spot.new(
+    name: Faker::Restaurant.name,
     address: "Stockholm",
     rating: rand(1..5),
-    description: Faker::Restaurant.name,
+    description: "Great spot",
     link: "https://www.kvarnen.com/",
     sun_start: 0635,
     sun_end: 2035
@@ -38,6 +39,7 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 spot.photo.attach(io: URI.open('https://unsplash.com/photos/Ciqxn7FE4vE'), filename: 'picture', content_type: 'image/jpg')
 spot.save
 end
+sp = Spot.create(name: "Kvarnen", address: "Medborgarplatsen, Stockholm", rating: rand(1..5), description: "Great spot", link: "https://www.kvarnen.com/", sun_start: 0635, sun_end: 2035)
 
 10.times do
   Review.create!(
