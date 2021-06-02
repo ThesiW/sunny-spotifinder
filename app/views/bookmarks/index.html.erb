@@ -1,0 +1,21 @@
+<h1>bookmarks</h1>
+
+
+  <div>
+    <% @bookmarks.each do |bookmark| %>
+        <div>
+          <%= "status:" %>
+          <%= bookmark.status %>
+        </div>
+        <div>
+          <%= "spot address:" %>
+          <%= bookmark.spot.address %>
+        </div>
+        <div>
+          <%= "user:" %>
+          <%= bookmark.user.username %>
+        </div>
+    <% end %>
+  </div>
+
+
