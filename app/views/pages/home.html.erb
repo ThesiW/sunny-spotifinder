@@ -9,16 +9,41 @@
   </div>
   <h2 class="d-flex justify-content-start pl-3">Welcome!</h2>
 
+<!-- Samir's Weather API -->
   <div class="container mt-3">
+    <form class="d-flex justify-content-start" id="city-form">
+      <!-- <input type="text" id="city-input" placeholder="Enter city"> -->
+       <input class="w-200" id="city-input" placeholder="Stockholm"></input>
+      <input type="submit" value="Search" class="btn btn-navy-city">
+    </form>
+    <h3 class="mt-2" style="color: black; font-size: 18px;">Weather in <span id="city" ></span>:</h3>
+  </div>
+
+<!-- Thesi's code: -->
+  <div class="container mt-2">
     <div class="row">
       <div class="col-12 col-md-12 offset-md-3">
-        <div class="today-card container grid-container mr-3">
+        <div class="today-card container grid-container mr-3 mt-0">
           <div class="">
             <!-- Today's Date -->
-            <h3>Friday, June 4th</h3>
-            <span class="sun d-flex justify-content-center pt-1" style="font-size: 50px;">&#9728;<p class="pl-3 m-0">23°C</p></span>
+            <h3 id="date" class="gray-text"></h3>
+            <span class="sun d-flex justify-content-center pt-1" style="font-size: 50px;">
+             <!--  &#9728; -->
+              <div id="weather">
+                <div class="d-flex ">
+                  <img src="" alt="Weather Icon" id="icon">
+                  <p class="pl-3 m-0" id="temperature"></p>
+                </div>
+                <p id="description"></p>
+              </div>
+
+            </span>
              <!--Temperature Today   -->
           </div>
+
+
+
+
           <div class="weather-cards d-flex justify-content-between">
             <div class="weather-card">
               <h3>Sat</h3>
