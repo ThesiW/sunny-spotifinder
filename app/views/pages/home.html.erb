@@ -2,23 +2,48 @@
 <body>
 
 
-  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-2">
+  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
     <%= link_to "#", class: "avatar-bordered" do %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ThesiW", height: '100%' %>
     <% end %>
   </div>
   <h2 class="d-flex justify-content-start pl-3">Welcome!</h2>
 
+<!-- Samir's Weather API -->
   <div class="container mt-3">
+    <form class="d-flex justify-content-start" id="city-form">
+      <!-- <input type="text" id="city-input" placeholder="Enter city"> -->
+       <input class="w-200" id="city-input" placeholder="Stockholm"></input>
+      <input type="submit" value="Search" class="btn btn-navy-city">
+    </form>
+    <h3 class="mt-2" style="color: black; font-size: 18px;">Weather in <span id="city" ></span>:</h3>
+  </div>
+
+<!-- Thesi's code: -->
+  <div class="container mt-2">
     <div class="row">
       <div class="col-12 col-md-12 offset-md-3">
-        <div class="today-card container grid-container mr-3">
+        <div class="today-card container grid-container mr-3 mt-0">
           <div class="">
             <!-- Today's Date -->
-            <h3>Friday, June 4th</h3>
-            <span class="sun d-flex justify-content-center pt-1" style="font-size: 50px;">&#9728;<p class="pl-3 m-0">23°C</p></span>
+            <h3 id="date" class="gray-text"></h3>
+            <span class="sun d-flex justify-content-center pt-1" style="font-size: 50px;">
+             <!--  &#9728; -->
+              <div id="weather">
+                <div class="d-flex ">
+                  <img src="" alt="Weather Icon" id="icon">
+                  <p class="pl-3 m-0" id="temperature"></p>
+                </div>
+                <p id="description"></p>
+              </div>
+
+            </span>
              <!--Temperature Today   -->
           </div>
+
+
+
+
           <div class="weather-cards d-flex justify-content-between">
             <div class="weather-card">
               <h3>Sat</h3>
@@ -40,9 +65,9 @@
 
 
         <div class="button-card container grid-container mr-3 mt-3">
-          <h3 class="mb-0">Never miss the sun.</h3>
-          <h3 class="pt-0 mb-3">Let's find a sunny spot!</h3>
-          <a class="btn-main mb-1 d-flex justify-content-center mb-3" href="#">Show me all sunny spots!</a>
+          <h3 class="mb-0 pt-3">Never miss the sun.</h3>
+          <h3 class="pt-0 mb-4 pt-1">Let's find a sunny spot!</h3>
+          <a class="btn-main mb-1 d-flex justify-content-center mb-3" href="/spots">Show me all sunny spots!</a>
           <a class="btn-main mb-1 d-flex justify-content-center" href="#">Check specific spot</a>
 <!--      <a class="btn-navy mb-1 d-flex justify-content-center" href="#">Check specific spot</a>
 
@@ -55,14 +80,17 @@
               <%#= f.submit class: 'btn btn-navy' %>
             <%# end %>
           </div>
-
-
  -->
-
      </div>
     </div>
   </div>
 </body>
 
-<%= link_to 'See all spot', spots_path  %>
+
+
+
+
+
+
+
 

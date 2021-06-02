@@ -15,9 +15,26 @@
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 16px;
   text-decoration: none;
-  font-size: 13px;
+  font-size: 30px;
+  border: none;
+  background: transparent;
+  color: #91989B;
+}
+
+
+.navbar-bottom span {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  border: none;
+  background: transparent;
+  color: #91989B;
 }
 
 /* Change the color of links on hover */
@@ -31,3 +48,13 @@
   background-color: #243860;
   color: white;
 }
+
+
+.fa:hover {
+  color: #747D81;
+}
+
+.fas:hover {
+  color: #747D81;
+}
+

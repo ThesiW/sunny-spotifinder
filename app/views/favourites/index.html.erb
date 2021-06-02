@@ -1,0 +1,21 @@
+<h1>favourites</h1>
+
+
+  <div>
+    <% @favourites.each do |favourite| %>
+        <div>
+          <%= "status:" %>
+          <%= favourite.status %>
+        </div>
+        <div>
+          <%= "spot address:" %>
+          <%= favourite.spot.address %>
+        </div>
+        <div>
+          <%= "user:" %>
+          <%= favourite.user.username %>
+        </div>
+    <% end %>
+  </div>
+
+
