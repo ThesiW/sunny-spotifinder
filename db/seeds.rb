@@ -12,19 +12,19 @@ require 'faker'
 # vincent = vincent = User.create(email:"vincent@gmail.com", password: "123456")
 
 # restaurant_one = Faker::Restaurant.name
-User.destroy_all
-Spot.destroy_all
+
+
 Review.destroy_all
 Bookmark.destroy_all
 Visit.destroy_all
+Favourite.destroy_all
+Spot.destroy_all
+User.destroy_all
 
-10.times do
-  User.create!(
-    username: Faker::Name.name_with_middle,
-    email: Faker::Internet.free_email,
-    password: "123456",
-    )
-end
+max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "sunnyboy")
+thesi = User.create(email: "theresa@gmail.com", password: "123456", username: "ThesiW")
+samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami")
+vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "vincent")
 
 10.times do
   spot = Spot.new(
@@ -33,9 +33,7 @@ end
     description: Faker::Restaurant.name,
     link: "https://www.kvarnen.com/",
     sun_start: 0635,
-    sun_end: 2035,
-    created_at: 20210601,
-    updated_at: 20210601
+    sun_end: 2035
     )
 spot.photo.attach(io: URI.open('https://unsplash.com/photos/Ciqxn7FE4vE'), filename: 'picture', content_type: 'image/jpg')
 spot.save
@@ -46,9 +44,7 @@ end
     rating: rand(1..5),
     comment: "Good overall experience",
     spot: Spot.all.sample,
-    user:  User.all.sample,
-    created_at: 20210601,
-    updated_at: 20210601
+    user:  User.all.sample
     )
 end
 
@@ -56,19 +52,22 @@ end
   Bookmark.create!(
     status: true,
     spot: Spot.all.sample,
-    user: User.all.sample,
-    created_at: 20210601,
-    updated_at: 20210601
+    user: User.all.sample
     )
 end
 
 10.times do
   Visit.create!(
     spot: Spot.all.sample,
-    user: User.all.sample,
-    created_at: 20210601,
-    updated_at: 20210601
+    user: User.all.sample
     )
 end
 
+10.times do
+  Favourite.create!(
+    status: true,
+    spot: Spot.all.sample,
+    user: User.all.sample
+    )
+end
 
