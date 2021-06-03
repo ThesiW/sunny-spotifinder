@@ -1,7 +1,3 @@
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <div class="container">
 <body class="index-body">
@@ -16,18 +12,19 @@
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
       <a class="btn-navy-index mb-1 d-flex justify-content-center mt-6 w-100" href="/spots/randomise" style="font-size: 16px;">Can't decide?</a>
+      <div id="map" style="width: 100%; height: 30vh; border-radius: 4px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
         <div class="spot-index-cards justify-content-between grid-container ">
-          <% @spot.each do |spot| %>
-          <a href="/spots/61">
+          <% @spots.each do |spot| %>
+          <%= link_to spot_path(spot) do %>
             <div class="spot-index-card container grid-container mr-3 mt-3">
               <h3 class="mb-0 pt-3"><%= spot.name %></h3>
               <div class="d-flex justify-content-evenly justify-content-between mt-3">
                 <div class="spot-index-img">
-                  <%= cl_image_tag spot.photo.key, crop: :fit %>
+                  <%= cl_image_tag spot.photo.key, crop: :fit if spot.photo.attached? %>
                 </div>
                 <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                   <div class="spot-index-details">
-                    <p class="mt-0 mb-3"> 6h of sun</p>
+                    <p class="mt-0 mb-3">6h of sun</p>
                     <p>distance</p>
                   </div>
                   <!-- insert distance of spot -->
@@ -40,8 +37,7 @@
             </div>
 
           <% end %>
-        </a>
-
+        <% end %>
       </div>
       </a>
     </div>

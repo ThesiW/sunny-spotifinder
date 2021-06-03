@@ -10,23 +10,29 @@ export function toggleSearch() {
     button.classList.add('hidden')
 
 }
+if (button) {
  button.addEventListener('click',() =>{
   toggleSearch();
  });
+}
+
 
 
  // This two function will listen submit on the search either enter or click
-
-input.addEventListener('keypress',(event)=>{
+if (input){
+  input.addEventListener('keypress',(event)=>{
   if (event.key === 'Enter'){
 
     let id = 1
     window.location.pathname = "/spots/" + id // This is to redirect to other page
   };
 });
+}
 
+if (icon){
 icon.addEventListener('click',() => {
 
     let id = 1
     window.location.pathname = "/spots/" + id //This is to redirect to other page
 });
+}
