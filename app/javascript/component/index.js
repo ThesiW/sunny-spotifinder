@@ -3,15 +3,13 @@
 import {initSelect2} from '../plugins/init_select2';
 initSelect2()
 
-const city = document.querySelector('#city');
-const date = document.querySelector('#date');
-const description = document.querySelector('#description');
-const temperature = document.querySelector('#temperature');
-const icon = document.querySelector('#icon');
-const form = document.querySelector('#city-form');
-const input = document.querySelector('#city-input');
+const fetchWeather = (cityName) => {
+  const city = document.querySelector('#city');
+  const date = document.querySelector('#date');
+  const description = document.querySelector('#description');
+  const temperature = document.querySelector('#temperature');
+  const icon = document.querySelector('#icon');
 
-export function fetchWeather(cityName) {
   fetch (`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b50f083d1d13be8ea2fd58f620b84eec&units=metric`)
     .then(response => response.json())
     .then((data) => {
@@ -27,6 +25,8 @@ export function fetchWeather(cityName) {
       icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
     });
 }
+const input = document.querySelector('#city-input');
+const form = document.querySelector('#city-form');
 if (form){
   form.addEventListener('submit',(event) =>{
   event.preventDefault();
@@ -35,4 +35,5 @@ if (form){
 
 };
 
-fetchWeather('Stockholm');
+
+export {fetchWeather}
