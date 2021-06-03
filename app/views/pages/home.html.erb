@@ -1,7 +1,5 @@
 
-<body>
-
-
+<body class="homepage-body">
   <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
     <%= link_to "#", class: "avatar-bordered" do %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ThesiW", height: '100%' %>
@@ -36,12 +34,9 @@
                 </div>
                 <p id="description"></p>
               </div>
-
             </span>
              <!--Temperature Today   -->
           </div>
-
-
 
           <div class="weather-cards d-flex justify-content-between">
             <div class="weather-card">
@@ -63,6 +58,12 @@
         </div>
 
 
+                <div class="container">
+                  <div onclick="toggleSearch()" id="btn" class="btn">Search</div>
+                  <input id="input" type="text" class="search "/>
+                 </div>
+
+
 
         <div class="button-card container grid-container mr-3 mt-3">
           <h3 class="mb-0 pt-3">Never miss the sun.</h3>
@@ -77,24 +78,13 @@
               <i id="submit-icon" class="fas fa-search search-icon"></i>
             </div>
 
-
-
-
-
-
-        <!-- <a class="btn-navy mb-1 d-flex justify-content-center" href="#">Check specific spot</a>
-
-          use JavaScript to make search bar and navy button appear
-           Form not done -->
-
-          <!-- <div class="form-home form-inline" >
+          <!-- <div class="form-home form-inline">
             <%#= simple_form_for spots_path do |f| %>
-              <%#= f.input :address, placeholder: "Enter location"  %>
+              <%#= f.input :address, placeholder: "Enter location" %>
               <%#= f.submit class: 'btn btn-navy' %>
-            <#%end %>
+            <#% end %>
           </div> -->
-
-     </div>
+        </div>
     </div>
   </div>
 </body>
