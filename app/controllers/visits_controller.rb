@@ -6,8 +6,8 @@ class VisitsController < ApplicationController
 
   def create
     @spot = Spot.find(params[:spot_id])
+    @visit = Visit.new
     @visit.user = current_user
-    @visit = Visit.new(visit_params)
     @visit.spot = @spot
     if @visit.save
       redirect_to spot_path(@visit.spot)
@@ -15,6 +15,10 @@ class VisitsController < ApplicationController
       render 'new'
     end
   end
+
+
+
+
 
   private
 
