@@ -1,45 +1,32 @@
+const button = document.getElementById('search-btn');
+const input = document.getElementById('input');
+const icon = document.getElementById('submit-icon');
 
-// export function searchRand(){
-//   $(document).ready(function(){
-//     $ ("#searchForm"). hide ();
-//     $("#searchButton").click(function(){
-//          $("#searchForm").show();
-//     });
-//   });
+console.log(button)
 
-// };
 
-// next method
+export function toggleSearch() {
 
-// export function goTo(){
-
-//     location.href = document.getElementById('link_id').value;
-// };
-
-    // next method
-
-// export function asd(a)
-// {
-//     if(a==1)
-//         document.getElementById("asd").style.display="none";
-//     else
-//         document.getElementById("asd").style.display="block";
-// }
-
-// export function myClick(){
-//      var form = document.getElementById("regForm");
-//      form.style.display = "none";
-// }
-
-   function toggleSearch() {
-
-        button.classList.add('hidden')
-  }
-export myClick function (){
-    const button = document.getElementById('btn');
-    const input = document.getElementById('input');
-
-    console.log('here',button)
-
+    button.classList.add('hidden')
 
 }
+ button.addEventListener('click',() =>{
+  toggleSearch();
+ });
+
+
+ // This two function will listen submit on the search either enter or click
+
+input.addEventListener('keypress',(event)=>{
+  if (event.key === 'Enter'){
+
+    let id = 1
+    window.location.pathname = "/spots/" + id // This is to redirect to other page
+  };
+});
+
+icon.addEventListener('click',() => {
+
+    let id = 1
+    window.location.pathname = "/spots/" + id //This is to redirect to other page
+});
