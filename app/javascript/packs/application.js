@@ -30,7 +30,9 @@ import "bootstrap";
 
  import {fetchWeather} from '../component/index';
 
-import {myClick} from './component/search'
+  import {toggleSearch} from '../component/search';
+  import {initAutocomplete} from '../component/autocomplete'
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
