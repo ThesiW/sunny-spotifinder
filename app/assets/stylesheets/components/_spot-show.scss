@@ -13,6 +13,10 @@
   font-weight: 100;
 }
 
+#carouselExampleIndicators {
+  position: relative;
+}
+
 
 .carousel-card {
   background-color: white;
@@ -22,6 +26,15 @@
   height: 20vh;
   border-radius: 8px;
 }
+
+.carousel-inner {
+  border-radius: 8px;
+}
+
+.carousel-item img {
+  object-fit: cover;
+}
+
 
 .show-details-card {
   background-color: white;
@@ -80,4 +93,17 @@
   height: 22vh;
   border-radius: 8px;
 }
+
+.bookmark-button i {
+  color: #243860;
+  font-size: 30px;
+}
+
+.favourite-button i {
+  color: #243860;
+  font-size: 30px;
+}
+
+
+
 
