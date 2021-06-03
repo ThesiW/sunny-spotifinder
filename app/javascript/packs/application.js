@@ -29,7 +29,11 @@ import { initMapbox } from '../plugins/init_mapbox'
 // import { initSelect2 } from '../components/init_select2';
 
  import {fetchWeather} from '../component/index';
-// fetchWeather()
+
+  import {toggleSearch} from '../component/search';
+  import {initAutocomplete} from '../component/autocomplete'
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :bookmarks, only: [:index, :update]
-  resources :favourites, only: [:index, :update]
-  resources :visits, only: [:index]
+  resources :bookmarks, only: [:index, :update, :destroy]
+  resources :favourites, only: [:index, :update, :destroy]
+  resources :visits, only: [:index, :destroy]
 end

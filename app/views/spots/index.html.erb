@@ -4,31 +4,51 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <div class="container">
+<body class="index-body">
+  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
+    <%= link_to "#", class: "avatar-bordered" do %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ThesiW", height: '100%' %>
+    <% end %>
+  </div>
+</body>
+
+<div class="container mt-2">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
-      <form class="d-flex align-items-center" id = "city-form">
-        <!-- <input type="text" id="city-input" placeholder="Enter city"> -->
-         <select id="city-input" class="select2 form-control"></select>
-        <input type="submit" value="Get the weather" class="btn btn-primary">
-      </form>
-      <div class="card mt-4 mb-5">
-        <div class="card-body">
-          <h1>Weather in <span id="city"></span></h1>
-          <h3 id="date" class="gray-text"></h3>
-          <div id="weather">
-            <p id="description"></p>
-            <div class="d-flex">
-              <img src="" alt="Weather Icon" id="icon">
-              <h2 id="temperature"></h2>
+      <a class="btn-navy-index mb-1 d-flex justify-content-center mt-6 w-100" href="/spots/randomise" style="font-size: 16px;">Can't decide?</a>
+        <div class="spot-index-cards justify-content-between grid-container ">
+          <% @spot.each do |spot| %>
+          <a href="/spots/61">
+            <div class="spot-index-card container grid-container mr-3 mt-3">
+              <h3 class="mb-0 pt-3"><%= spot.name %></h3>
+              <div class="d-flex justify-content-evenly justify-content-between mt-3">
+                <div class="spot-index-img">
+                  <%= cl_image_tag spot.photo.key, crop: :fit %>
+                </div>
+                <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
+                  <div class="spot-index-details">
+                    <p class="mt-0 mb-3"> 6h of sun</p>
+                    <p>distance</p>
+                  </div>
+                  <!-- insert distance of spot -->
+                  <!-- insert hours of sun left -->
+                  <%#= spot.sun_end - spot.sun_start %>
+                  <!-- insert spot.address (?) -->
+                  <!-- show more button that leads to show.html.erb -->
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <a href="" class="btn btn-main w-100 mb-3" id="current-location" style="font-size: 12px;">Get weather in your current city</a>
-      <a class="btn-navy mb-1 w-100 d-flex justify-content-center" href="/spots/randomise" style="font-size: 12px;">Go to randomiser</a>
 
+          <% end %>
+        </a>
+
+      </div>
+      </a>
     </div>
   </div>
 </div>
+
+
+
 
 
