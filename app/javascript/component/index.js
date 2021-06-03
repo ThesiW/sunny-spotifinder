@@ -27,10 +27,12 @@ export function fetchWeather(cityName) {
       icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
     });
 }
-
-form.addEventListener('submit',(event) =>{
+if (form){
+  form.addEventListener('submit',(event) =>{
   event.preventDefault();
    fetchWeather(input.value);
 });
+
+};
 
 fetchWeather('Stockholm');
