@@ -8,6 +8,12 @@ class SpotsController < ApplicationController
         lng: spot.longitude
       }
     end
+
+    if params[:query].present?
+      @spot = Spot.where(title: params[:query])
+    else
+      @spot= Spot.all
+    end
   end
 
   def show

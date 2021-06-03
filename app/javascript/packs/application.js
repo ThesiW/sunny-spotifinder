@@ -21,21 +21,28 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+// for weather
+
+  import {initSelect2} from '../plugins/init_select2';
 
 // External imports
-import "bootstrap";
-import { initMapbox } from '../plugins/init_mapbox'
+  import "bootstrap";
+  import { initMapbox } from '../plugins/init_mapbox'
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
  import {fetchWeather} from '../component/index';
 
-  import {toggleSearch} from '../component/search';
+  import {expotHideButton} from '../component/search';
   import {initAutocomplete} from '../component/autocomplete'
+
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  fetchWeather('stockholm');
+  initSelect2();
+  expotHideButton();
 });
