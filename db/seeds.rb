@@ -20,7 +20,7 @@ drop = Spot.create(
   link: "https://www.dropcoffee.com/",
   sun_start: 0635,
   sun_end: 2035
-  )
+ )
 
 ['https://cdn.shopify.com/s/files/1/0235/7459/t/18/assets/footer_slide_3.png?v=16230210995616577380', 'https://www.allakartor.se/venue_images_475/148882_48446780.jpg', 'https://www.allakartor.se/venue_images_475/148882_37427961.jpg'].each do |url|
   drop.photos.attach(io: URI.open(url), filename: 'picture', content_type: 'image/jpg')
@@ -113,7 +113,6 @@ kaffebar.save!
 
 # ----
 
-
 beck = Spot.create(
   name: "Beck Kaffebar",
   address: "Tjärhovsgatan 3, Stockholm",
@@ -129,7 +128,6 @@ end
 beck.save!
 
 # ----
-
 
 delico = Spot.create(
   name: "Delico Kaffehandel",
@@ -163,9 +161,6 @@ end
 savant.save!
 
 
-# ----
-
-
 
 # 10.times do
 #   Review.create!(
@@ -183,12 +178,14 @@ savant.save!
 #     user: User.all.sample
 #     )
 # end
+
 # 10.times do
 #   Visit.create!(
 #     spot: Spot.all.sample,
 #     user: User.all.sample
 #     )
 # end
+
 # 10.times do
 #   Favourite.create!(
 #     status: true,
@@ -196,10 +193,6 @@ savant.save!
 #     user: User.all.sample
 #     )
 # end
-
-
-
-
 
 
 
