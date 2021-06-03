@@ -16,21 +16,9 @@ class FavouritesController < ApplicationController
     end
   end
 
-
-  def update
+  def destroy
     @favourite = Favourite.find(params[:id])
-    if @favourite.status == true
-      @favourite.status = false
-    elsif @favourite.status == false
-      @favourite.status = true
-    end
-    if @favourite.save
-      redirect_to spots_path
-    else
-      render :show
-    end
+    @favourite.destroy
+    redirect_to spot_path(@favourite.spot)
   end
-
-  private
-
 end
