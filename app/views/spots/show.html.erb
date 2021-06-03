@@ -41,6 +41,31 @@
         <p>Star rating</p>
         <a class="btn-main-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i></i>Add to Visits</a>
         <a class="btn-navy-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+
+        <% @spot.bookmarks.each do |b| %>
+          <% if b == Bookmark.find_by(spot: @spot, user: current_user)%>
+            <%= button_to "delete", bookmark_path(b), :method => :delete %>
+          <% end %>
+        <% end %>
+
+        <% if @spot.bookmarks.count == 0 %>
+            <%= simple_form_for [@spot, @bookmark] do |b| %>
+              <%= b.submit class: 'btn btn-primary' %>
+            <% end %>
+        <% end %>
+
+        <% @spot.favourites.each do |b| %>
+          <% if b == Favourite.find_by(spot: @spot, user: current_user)%>
+            <%= button_to "delete", favourite_path(b), :method => :delete %>
+          <% end %>
+        <% end %>
+
+        <% if @spot.favourites.count == 0 %>
+            <%= simple_form_for [@spot, @favourite] do |b| %>
+              <%= b.submit class: 'btn btn-primary' %>
+            <% end %>
+        <% end %>
+
       </div>
 
       <div class="show-map">
@@ -55,23 +80,7 @@
 <%#= link_to "Show me all sunny spots", spots_path  %><br>
 <%#= link_to "Go to randomiser", randomise_spots_path  %><br>
 
-<%= simple_form_for [@spot, @bookmark] do |b| %>
-  <%= b.submit class: 'btn btn-primary' %>
-<% end %>
 
-<%= simple_form_for [@spot, @favourite] do |f| %>
-  <%= f.submit class: 'btn btn-primary' %>
-<% end %>
-
-<% @spot.bookmarks.each do |b| %>
-  <% if b == Bookmark.find_by(spot: @spot, user: current_user)%>
-    <%= button_to "delete", bookmark_path(b), :method => :delete %>
-  <% else %>
-    <%= simple_form_for [@spot, @bookmark] do |b| %>
-      <%= b.submit class: 'btn btn-primary' %>
-    <% end %>
-  <% end %>
-<% end %>
 
 <div id="map"
      style="width: 100%; height: 600px;"
