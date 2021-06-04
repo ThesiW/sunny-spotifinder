@@ -129,16 +129,40 @@ end
 beck.save!
 
 
- Bookmark.create!(
+ beck_b = Bookmark.create!(
     status: true,
     spot: beck,
+    user: max
+    )
+
+ drop_b = Bookmark.create!(
+    status: true,
+    spot: drop,
+    user: thesi
+    )
+
+ lykke_b = Bookmark.create!(
+    status: true,
+    spot: lykke,
+    user: samir
+    )
+
+ kaffe_b = Bookmark.create!(
+    status: true,
+    spot: kaffe,
+    user: vincent
+    )
+
+ johan_b = Bookmark.create!(
+    status: true,
+    spot: johan,
     user: max
     )
 
 # ----
 
   Visit.create!(
-    spot: beck,
+    spot: kvarnen,
     user: max
     )
 
@@ -165,7 +189,7 @@ savant = Spot.create(
   description: "Amazing food. Cool owner. Nice vibes. Great for natural wine lovers",
   link: "https://www.savantbar.se/",
   sun_start: "06:35",
-  sun_end: "20:35" 
+  sun_end: "20:35"
   )
 
 ['https://images.squarespace-cdn.com/content/v1/5dcfbd9af1a7771855d1d15d/1576658667545-J60L21SZA0QWYVHW5LQL/ke17ZwdGBToddI8pDm48kOggE0Ch6pMGalwtLMqzsSB7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1Ufo5RWkg_J4of0jUNHaDHx6pZKBvpVYzidBWCapg0tuoMuEaB2HPGSYDV-11UTcW2g/_P8A8480_SAVANT_web.jpg', 'https://lh5.googleusercontent.com/p/AF1QipObGXolb5AoMbEnT0PVoprQBG4i3YlKCH20IC-2=s1083-k-no', 'https://lh5.googleusercontent.com/p/AF1QipMR_eRVuXVCz0EtRwvJT0Rrt-4WNmPSYFJZckPD=s1083-k-no'].each do |url|
