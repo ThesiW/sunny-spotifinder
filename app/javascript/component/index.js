@@ -37,6 +37,6 @@ if (form){
   event.preventDefault();
    fetchWeather(input.value);
 });
-
 };
-export {fetchWeather}
+
+export {fetchWeather};
