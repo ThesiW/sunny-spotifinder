@@ -1,9 +1,15 @@
+<body class="show-body" style="background-color: #F5FCFF; color: black;">
+  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
+    <%= link_to "#", class: "avatar-bordered" do %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/rappmax", height: '100%' %>
+    <% end %>
+  </div>
+</body>
 
-<div class="container bookmark-body mt-2">
+<div class="container mt-2">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
-      <h1>All bookmarked spots</h1>
-
+      <h1>My Bookmarks</h1>
       <div class="spot-bookmark-cards justify-content-between grid-container ">
         <% @bookmarks.each do |bookmark| %>
         <%= link_to bookmark_path(bookmark) do %>
@@ -32,7 +38,7 @@
        <div class="bookmark-map">
         <div
           id="map"
-          style="width: 100%; height: 42vh; border-radius: 8px;"
+          style="width: 100%; height: 21vh; border-radius: 8px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>

@@ -87,19 +87,20 @@
           </div>
           <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
       </div>
-          <a class="btn-main-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i></i>Add to Visits</a>
+          <a class="btn-main-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
           <a class="btn-navy-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+
+
       </div>
-      <div class="show-map">
+
         <div
+          class="show-map container"
+
           id="map"
           style="width: 100%; height: 22vh; border-radius: 8px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      </div>
-
-
       <div class="navbar-bottom">
         <div class="ml-3 mr-3 d-flex justify-content-between">
           <a href="/" class="btn-icon"><i class="fa fa-home"></i></a>
@@ -108,9 +109,8 @@
           <a href="/" class="btn-icon"><i class="fas fa-search"></i></a>
         </div>
       </div>
+    </div>
 
-  </div>
-</div>
 
 <%#= link_to "Show me all sunny spots", spots_path  %><br>
 <%#= link_to "Go to randomiser", randomise_spots_path  %><br>
