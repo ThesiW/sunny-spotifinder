@@ -39,8 +39,12 @@
                 </div>
                 <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                   <div class="spot-index-details">
-                    <p class="mt-0 mb-3">6h of sun</p>
-                    <p>distance</p>
+                    <p class="d-flex justify-content-center"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+                    <div class="stars d-flex justify-content-center">
+                      <% spot.rating.to_i.times do %>
+                        <i class="fas fa-star "></i>
+                      <% end %>
+                    </div>
                   </div>
                   <!-- insert distance of spot -->
                   <!-- insert hours of sun left -->

@@ -16,10 +16,11 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 drop = Spot.create(
   name: "Drop Coffee",
   address: "Wollmar Yxkullsgatan 10, Stockholm",
-  rating: rand(1..5), description: "Great spot",
+  rating: rand(1..5),
+  description: "Great spot",
   link: "https://www.dropcoffee.com/",
-  sun_start: "06:35",
-  sun_end: "20:35"
+  sun_start: "08:35",
+  sun_end: "22:35"
  )
 
 ['https://cdn.shopify.com/s/files/1/0235/7459/t/18/assets/footer_slide_3.png?v=16230210995616577380', 'https://www.allakartor.se/venue_images_475/148882_48446780.jpg', 'https://www.allakartor.se/venue_images_475/148882_37427961.jpg'].each do |url|
@@ -35,8 +36,8 @@ lykke = Spot.create(
   rating: rand(1..5),
   description: "Cool, great atmosphere and relaxed place, nice selection of sandwiches and cakes, great coffee, nice selection of wines too.",
   link: "https://www.lykkegardar.se/",
-  sun_start: "06:35",
-  sun_end: "20:35"
+  sun_start: "02:35",
+  sun_end: "16:35"
   )
 
 ['https://i.shgcdn.com/fe5b943a-0627-43d5-9df8-0ee876eabed8/-/format/auto/-/preview/3000x3000/-/quality/lighter/', 'https://i.shgcdn.com/362b4de2-70cf-4d4c-9591-2df6b6ed7fd9/-/format/auto/-/preview/3000x3000/-/quality/lighter/', 'https://i.shgcdn.com/362b4de2-70cf-4d4c-9591-2df6b6ed7fd9/-/format/auto/-/preview/3000x3000/-/quality/lighter/'].each do |url|
@@ -51,8 +52,8 @@ kaffe = Spot.create(
   address: "Sankt Paulsgatan 17, Stockholm",
   rating: rand(1..5), description: "Great spot",
   link: "https://www.tripadvisor.com/Restaurant_Review-g189852-d3530028-Reviews-Kaffe-Stockholm.html",
-  sun_start: "06:35",
-  sun_end: "20:35"
+  sun_start: "09:35",
+  sun_end: "19:35"
   )
 
 ['https://static.thatsup.co/content/img/place/k/a/user-photo/e2a3794a.jpg', 'https://static.thatsup.co/content/img/place/k/a/user-photo/4e372d49_1.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/0f/29/22/57/photo2jpg.jpg'].each do |url|
@@ -69,7 +70,7 @@ johan = Spot.create(
   description: "Great spot",
   link: "https://johanochnystrom.com/",
   sun_start: "06:35",
-  sun_end: "20:35"
+  sun_end: "19:35"
   )
 
 ['https://media-cdn.tripadvisor.com/media/photo-s/13/81/0c/f8/sommar-pa-swedenborgsgatan.jpg', 'https://media-cdn.tripadvisor.com/media/photo-l/0a/2f/07/f0/photo0jpg.jpg'].each do |url|
