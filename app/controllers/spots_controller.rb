@@ -10,15 +10,11 @@ require 'time'
         lng: spot.longitude
       }
     end
-
     if params[:query].present?
       @spot = Spot.where(title: params[:query])
-
     else
-      @spot= Spot.all
+      @spot = Spot.all
     end
-
-
   end
 
   def time_difference
@@ -35,22 +31,17 @@ require 'time'
     end
   end
 
-
   def show
-
-   @spot = Spot.find(params[:id])
-   @markers = @spots.map do |spot|
-
+    @spot = Spot.find(params[:id])
+    @markers =
       [{
         lat: @spot.geocode[0],
         lng: @spot.geocode[1]
       }]
-   @bookmark = Bookmark.new
-   @favourite = Favourite.new
-   @visit = Visit.new
-  time_difference
-
-    end
+    @bookmark = Bookmark.new
+    @favourite = Favourite.new
+    @visit = Visit.new
+    time_difference
   end
 
   def randomise
@@ -62,6 +53,6 @@ require 'time'
 
   def visit_params
     params.require(:visit).permit(:spot_id)
+  endmap { |e|  }
   end
-
 end

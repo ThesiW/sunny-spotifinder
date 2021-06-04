@@ -27,6 +27,7 @@ const fetchWeather = (cityName) => {
        fetchDays(cityName);
     });
   }
+};
 
 
 const input = document.querySelector('#city-input');
