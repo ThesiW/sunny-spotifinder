@@ -19,8 +19,6 @@ require 'time'
 
 
   def show
-
-
     @spot = Spot.find(params[:id])
     @markers =
       [{
