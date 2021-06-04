@@ -11,7 +11,7 @@ const fetchWeather = (cityName) => {
   const icon = document.querySelector('#icon');
 
   if (city) {
-  fetch (`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b50f083d1d13be8ea2fd58f620b84eec&units=metric`)
+  fetch (`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b50f083d1d13be8ea2fd58f620b84eec&units=metric`)
     .then(response => response.json())
     .then((data) => {
       city.innerText = data.name;
