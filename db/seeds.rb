@@ -136,16 +136,40 @@ end
 beck.save!
 
 
- Bookmark.create!(
+ beck_b = Bookmark.create!(
     status: true,
     spot: beck,
+    user: max
+    )
+
+ drop_b = Bookmark.create!(
+    status: true,
+    spot: drop,
+    user: thesi
+    )
+
+ lykke_b = Bookmark.create!(
+    status: true,
+    spot: lykke,
+    user: samir
+    )
+
+ kaffe_b = Bookmark.create!(
+    status: true,
+    spot: kaffe,
+    user: vincent
+    )
+
+ johan_b = Bookmark.create!(
+    status: true,
+    spot: johan,
     user: max
     )
 
 # ----
 
   Visit.create!(
-    spot: beck,
+    spot: kvarnen,
     user: max
     )
 
