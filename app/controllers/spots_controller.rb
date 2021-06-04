@@ -32,6 +32,8 @@ require 'time'
   end
 
   def show
+
+
     @spot = Spot.find(params[:id])
     @markers =
       [{
@@ -56,3 +58,4 @@ require 'time'
   endmap { |e|  }
   end
 end
+
