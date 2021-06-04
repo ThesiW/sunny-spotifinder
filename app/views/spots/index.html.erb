@@ -30,7 +30,7 @@
               <h3 class="mb-0 pt-3"><%= spot.name %></h3>
               <div class="d-flex justify-content-evenly justify-content-between mt-3">
                 <div class="spot-index-img">
-                  <%= cl_image_tag spot.photo.key, crop: :fit if spot.photo.attached? %>
+                  <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
                 </div>
                 <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                   <div class="spot-index-details">
@@ -48,7 +48,7 @@
           <% end %>
         <% end %>
       </div>
-      </a>
+
     </div>
   </div>
 </div>

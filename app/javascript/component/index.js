@@ -10,6 +10,7 @@ const fetchWeather = (cityName) => {
   const temperature = document.querySelector('#temperature');
   const icon = document.querySelector('#icon');
 
+  if (city) {
   fetch (`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b50f083d1d13be8ea2fd58f620b84eec&units=metric`)
     .then(response => response.json())
     .then((data) => {
@@ -26,13 +27,15 @@ const fetchWeather = (cityName) => {
        fetchDays(cityName);
     });
   }
-  const input = document.querySelector('#city-input');
-  const form = document.querySelector('#city-form');
-  if (form){
-    form.addEventListener('submit',(event) =>{
-    event.preventDefault();
-     fetchWeather(input.value);
-  });
+
+
+const input = document.querySelector('#city-input');
+const form = document.querySelector('#city-form');
+if (form){
+  form.addEventListener('submit',(event) =>{
+  event.preventDefault();
+   fetchWeather(input.value);
+});
 
 };
 export {fetchWeather}
