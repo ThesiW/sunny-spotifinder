@@ -1,25 +1,58 @@
-<h1>bookmarks</h1>
+
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <h1>All bookmarked spots</h1>
+
+      <div class="spot-bookmark-cards justify-content-between grid-container ">
+        <% @spots.each do |spot| %>
+        <%= link_to spot_path(spot) do %>
+          <div class="spot-bookmark-card container grid-container mr-3 mt-3">
+            <h3 class="mb-0 pt-3"><%= spot.name %></h3>
+            <div class="d-flex justify-content-evenly justify-content-between mt-3">
+              <div class="spot-index-img">
+                <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
+              </div>
+              <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
+                <div class="spot-bookmark-details">
+                  <p class="mt-0 mb-3">6h of sun</p>
+                  <p>distance</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
 
 
-  <div>
-    <% @bookmarks.each do |bookmark| %>
         <div>
-          <%= "status:" %>
-          <%= bookmark.status %>
+          <% @bookmarks.each do |bookmark| %>
+              <div>
+                <%= "status:" %>
+                <%= bookmark.status %>
+              </div>
+              <div>
+                <%= "spot address:" %>
+                <%= bookmark.spot.address %>
+              </div>
+              <div>
+                <%= "user:" %>
+                <%= bookmark.user.username %>
+              </div>
+          <% end %>
         </div>
-        <div>
-          <%= "spot address:" %>
-          <%= bookmark.spot.address %>
+
+
+
+       <div class="bookmark-map">
+        <div
+          id="map"
+          style="width: 100%; height: 22vh; border-radius: 8px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-        <div>
-          <%= "user:" %>
-          <%= bookmark.user.username %>
-        </div>
-    <% end %>
+      </div>
+    </div>
   </div>
-
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>

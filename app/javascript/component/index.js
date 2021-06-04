@@ -1,5 +1,5 @@
 // const url = 'http://api.openweathermap.org/data/2.5/weather?q=stockholm&appid=b50f083d1d13be8ea2fd58f620b84eec&units=metric'
-
+import {fetchDays} from '../component/days'
 import {initSelect2} from '../plugins/init_select2';
 initSelect2()
 
@@ -10,6 +10,7 @@ const fetchWeather = (cityName) => {
   const temperature = document.querySelector('#temperature');
   const icon = document.querySelector('#icon');
 
+  if (city) {
   fetch (`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=b50f083d1d13be8ea2fd58f620b84eec&units=metric`)
     .then(response => response.json())
     .then((data) => {
@@ -23,8 +24,11 @@ const fetchWeather = (cityName) => {
       description.innerText =data.weather[0].description;
       temperature.innerText = `${Math.round(data.main.temp)}°C`;
       icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+       fetchDays(cityName);
     });
-}
+  }
+
+
 const input = document.querySelector('#city-input');
 const form = document.querySelector('#city-form');
 if (form){
@@ -34,6 +38,4 @@ if (form){
 });
 
 };
-
-
 export {fetchWeather}

@@ -5,7 +5,6 @@ const initAutocomplete = () => {
   console.log(addressInput)
   if (addressInput) {
     places({ container: addressInput });
-    console.log('hello')
   }
 };
 

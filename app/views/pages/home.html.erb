@@ -2,7 +2,7 @@
 <body class="homepage-body">
   <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
     <%= link_to "#", class: "avatar-bordered" do %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ThesiW", height: '100%' %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/rappmax", height: '100%' %>
     <% end %>
   </div>
   <h2 class="d-flex justify-content-start pl-3">Welcome!</h2>
@@ -35,24 +35,29 @@
                 <p id="description"></p>
               </div>
             </span>
-             <!--Temperature Today   -->
+
           </div>
 
+              <!--Temperature of next 3 days Today   -->
+
           <div class="weather-cards d-flex justify-content-between">
+
+            <div class="weather-card" >
+              <h3><%= (Date.today + 1).strftime('%a') %></h3>
+              <img src="" alt="Weather Icon" id="icon1" heigth="80" width="80">
+              <p class="m-0" id="days1" ></p>
+            </div>
+
+
             <div class="weather-card">
-              <h3>Sat</h3>
-              <span class="rain d-flex justify-content-center" style="font-size: 50px;">&#9730;</span>
-              <p class="m-0">23°C</p>
+              <h3><%= (Date.today + 2).strftime('%a') %></h3>
+              <img src="" alt="Weather Icon" id="icon2" heigth="80" width="80">
+              <p class="m-0" id="days2"></p>
             </div>
             <div class="weather-card">
-              <h3>Sun</h3>
-              <span class="cloud d-flex justify-content-center" style="font-size: 50px; display: block;">&#9729;</span>
-              <p class="m-0">18°C</p>
-            </div>
-            <div class="weather-card">
-              <h3>Mon</h3>
-              <span class="cloud d-flex justify-content-center" style="font-size: 50px; display: block;">&#9728;</span>
-              <p class="m-0">12°C</p>
+               <h3><%= (Date.today + 3).strftime('%a') %></h3>
+              <img src="" alt="Weather Icon" id="icon3" heigth="80" width="80">
+              <p class="m-0" id="days3"></p>
             </div>
           </div>
         </div>
@@ -75,9 +80,7 @@
                 <% end %>
             </div>
 
-
-              <!-- [...] -->
-
+             <!-- [...] -->
 
           <!-- <div class="form-home form-inline">
             <%#= simple_form_for spots_path do |f| %>
@@ -86,6 +89,16 @@
             <#% end %>
           </div> -->
         </div>
+
+<div class="navbar-bottom">
+  <div class="ml-3 mr-3 d-flex justify-content-between">
+    <a href="/" class="btn-icon"><i class="fa fa-home"></i></a>
+    <a href="/bookmarks" class="btn-icon"><i class="fas fa-bookmark" class="active"></i></a>
+    <a href="/favourites" class="btn-icon"><i class="fas fa-sun" class="active"></i></a>
+    <a href="/" class="btn-icon"><i class="fas fa-search"></i></a>
+  </div>
+</div>
+
     </div>
   </div>
 </body>
