@@ -27,7 +27,7 @@
     <div class="col-sm-8 offset-sm-2">
       <div class="show-name">
         <h1 class="d-flex justify-content-center" style="margin-top: 40px;"> <%= @spot.name %> </h1>
-        <p class="d-flex justify-content-center"><%= @spot.time_difference[:hour] %>h<%= @spot.time_difference[:minutes] %> of remaining sun</p>
+        <p class="d-flex justify-content-center"><%= @spot.time_difference[:hour] %><%= @spot.time_difference[:minutes] %>h of remaining sun</p>
       </div>
 
       <div class="carousel-card">
@@ -56,8 +56,8 @@
     </div>
 
       <div class="show-details-card">
-        <div class="bookmark-favourite d-flex justify-content-end pt-3">
-          <div class="bookmark-button mr-2">
+        <div class="bookmark-favourite d-flex justify-content-end pt-2">
+          <div class="bookmark-button mr-2 mt-2">
             <% if Bookmark.find_by(spot: @spot, user: current_user)%>
                 <%= link_to bookmark_path(Bookmark.find_by(spot: @spot, user: current_user)), :method => :delete do %>
                   <i class="fas fa-bookmark mr-2"></i>
@@ -68,7 +68,7 @@
               <% end %>
             <% end %>
           </div>
-          <div class="favourite-button mr-2">
+          <div class="favourite-button mr-2 mt-2">
             <% if Favourite.find_by(spot: @spot, user: current_user)%>
               <%= link_to favourite_path(Favourite.find_by(spot: @spot, user: current_user)), :method => :delete do %>
                 <i class="far fa-sun"></i>
@@ -80,12 +80,16 @@
             <% end %>
           </div>
         </div>
-          <p>Reviews</p>
-          <p>Star rating</p>
+          <div class="stars d-flex justify-content-start ml-3">
+            <% @spot.rating.to_i.times do %>
+              <i class="fas fa-star "></i>
+            <% end %>
+          </div>
+          <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
+      </div>
           <a class="btn-main-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i></i>Add to Visits</a>
           <a class="btn-navy-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
       </div>
-
       <div class="show-map">
         <div
           id="map"

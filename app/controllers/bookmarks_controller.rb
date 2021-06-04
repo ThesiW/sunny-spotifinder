@@ -1,9 +1,7 @@
 class BookmarksController < ApplicationController
 
   def index
-    @bookmarks = current_user.bookmarks.map do |bookmark|
-      [bookmark, time_difference(bookmark.spot)]
-    end
+    @bookmarks = current_user.bookmarks
   end
 
   def create
@@ -13,19 +11,6 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     @bookmark.save
     redirect_to spot_path(@bookmark.spot)
-  end
-
-  def time_difference(spot)
-    a = Time.now.to_i
-    b = "#{Date.today} #{spot.sun_end}".to_datetime.to_i
-
-    @difference_hours = (b - a) / 3600
-    @difference_minutes = ((b - a) - (@difference_hours * 3600) > 1800) ? ",5" : ""
-    if @difference_hours > 0
-      return [@difference_hours, @difference_minutes]
-    else
-      "No sun until tomorrow"
-    end
   end
 
   def destroy

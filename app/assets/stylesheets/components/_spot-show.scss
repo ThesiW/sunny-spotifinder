@@ -13,6 +13,15 @@
   font-weight: 100;
 }
 
+.spot-review {
+  width: 45%;
+  margin-left: 10px;
+}
+
+.stars-show {
+  margin-left: 10px;
+}
+
 #carouselExampleIndicators {
   position: relative;
 }
@@ -54,10 +63,10 @@
   border-radius: 8px;
   padding: 8px;
   margin-top: 50px;
-  width: 48%;
+  width: 43%;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 16px;
   text-align: center;
 }
 
@@ -68,11 +77,11 @@
   border-radius: 8px;
   padding: 8px;
   margin-top: 50px;
-  width: 39%;
+  width: 43%;
   text-align: center;
   position: absolute;
   bottom: 41px;
-  right: 0;
+  right: 16px;
 }
 
 .fa-plus-circle {

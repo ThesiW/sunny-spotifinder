@@ -21,7 +21,7 @@ drop = Spot.create(
   link: "https://www.dropcoffee.com/",
   sun_start: "08:35",
   sun_end: "22:35",
-  review:"Wonderfull, beautiful very sunny spot with great coffee"
+  review:"Wonderful, beautiful very sunny spot with great coffee"
  )
 
 ['https://cdn.shopify.com/s/files/1/0235/7459/t/18/assets/footer_slide_3.png?v=16230210995616577380', 'https://www.allakartor.se/venue_images_475/148882_48446780.jpg', 'https://www.allakartor.se/venue_images_475/148882_37427961.jpg'].each do |url|
@@ -56,7 +56,7 @@ kaffe = Spot.create(
   link: "https://www.tripadvisor.com/Restaurant_Review-g189852-d3530028-Reviews-Kaffe-Stockholm.html",
   sun_start: "09:35",
   sun_end: "19:35",
-  review: "Nice brunch place in Stockholm, on weekends gets quite busy, the waitress was super nice with us. Food was pretty good. Avg price in the city.Pretty sunny location"
+  review: "Nice brunch place in Stockholm, on weekends gets quite busy, the waitress was really nice! Pretty sunny location"
   )
 
 ['https://static.thatsup.co/content/img/place/k/a/user-photo/e2a3794a.jpg', 'https://static.thatsup.co/content/img/place/k/a/user-photo/4e372d49_1.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/0f/29/22/57/photo2jpg.jpg'].each do |url|
@@ -109,7 +109,7 @@ kaffebar = Spot.create(
   link: "https://www.afar.com/places/mellqvist-kaffebar-stockholm",
   sun_start: "06:35",
   sun_end: "20:35",
-  review: "Amazing brunch. One of the best brunch spots in sthlm."
+  review: "Amazing brunch. One of the best brunch spots in Stockholm."
   )
 
 ['https://lh5.googleusercontent.com/p/AF1QipPU_9BNYpDx7e9N3g1CJkDaRJK88wZs26JStuGK=s1353-k-no', 'https://lh5.googleusercontent.com/p/AF1QipOZn-eTyk-qB_bfS93BtppLAPgzbTOtQRkNwOxr=s1160-k-no', 'https://lh5.googleusercontent.com/p/AF1QipP_X756blPxHz8IgBqL17xPthcFbClu-iExzK0w=s1160-k-no'].each do |url|
