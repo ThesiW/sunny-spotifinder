@@ -1,8 +1,13 @@
 class BookmarksController < ApplicationController
 
   def index
-    @bookmarks = current_user.bookmarks.map do |bookmark|
-      [bookmark, time_difference(bookmark.spot)]
+    @bookmarks = current_user.bookmarks
+    @markers = @bookmarks.map do |bookmark|
+    spot = bookmark.spot
+      {
+        lat: spot.latitude,
+        lng: spot.longitude
+      }
     end
   end
 
@@ -33,7 +38,5 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to spot_path(@bookmark.spot)
   end
-
-
 end
 
