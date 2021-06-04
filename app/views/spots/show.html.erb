@@ -71,11 +71,11 @@
           <div class="favourite-button mr-2">
             <% if Favourite.find_by(spot: @spot, user: current_user)%>
               <%= link_to favourite_path(Favourite.find_by(spot: @spot, user: current_user)), :method => :delete do %>
-                <i class="far fa-sun"></i>
+                <i class="fas fa-sun"></i>
               <% end %>
             <% else %>
               <%= link_to spot_favourites_path(@spot), method: :post do %>
-                <i class="fas fa-sun"></i>
+                <i class="far fa-sun"></i>
               <% end %>
             <% end %>
           </div>

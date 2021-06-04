@@ -1,9 +1,7 @@
 class FavouritesController < ApplicationController
 
   def index
-    @favourites = current_user.favourites.map do |bookmark|
-      [bookmark, time_difference(bookmark.spot)]
-    end
+    @favourites = current_user.favourites
   end
 
   def create
