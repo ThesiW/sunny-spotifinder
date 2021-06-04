@@ -27,6 +27,7 @@ const fetchWeather = (cityName) => {
        fetchDays(cityName);
     });
   }
+};
 
 
 const input = document.querySelector('#city-input');
@@ -36,6 +37,6 @@ if (form){
   event.preventDefault();
    fetchWeather(input.value);
 });
-
 };
-export {fetchWeather}
+
+export {fetchWeather};

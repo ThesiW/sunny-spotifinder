@@ -39,7 +39,7 @@ require 'time'
   def show
 
    @spot = Spot.find(params[:id])
-   @markers = @spots.map do |spot|
+   @markers =
 
       [{
         lat: @spot.geocode[0],
@@ -63,5 +63,3 @@ require 'time'
   def visit_params
     params.require(:visit).permit(:spot_id)
   end
-
-end
