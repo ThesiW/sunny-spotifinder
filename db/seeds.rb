@@ -16,10 +16,11 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 drop = Spot.create(
   name: "Drop Coffee",
   address: "Wollmar Yxkullsgatan 10, Stockholm",
-  rating: rand(1..5), description: "Great spot",
+  rating: rand(1..5),
+  description: "Great spot",
   link: "https://www.dropcoffee.com/",
-  sun_start: "06:35",
-  sun_end: "20:35",
+  sun_start: "08:35",
+  sun_end: "22:35"
   review:"Wonderfull, beautiful very sunny spot with great coffee"
  )
 
@@ -36,8 +37,8 @@ lykke = Spot.create(
   rating: rand(1..5),
   description: "Cool, great atmosphere and relaxed place, nice selection of sandwiches and cakes, great coffee, nice selection of wines too.",
   link: "https://www.lykkegardar.se/",
-  sun_start: "06:35",
-  sun_end: "20:35",
+  sun_start: "02:35",
+  sun_end: "16:35"
   review: "Overall - really good! This is a popular spot, so the waiting time can be close to fifty minutes if you go here for breakfast or brunch"
   )
 
@@ -53,8 +54,8 @@ kaffe = Spot.create(
   address: "Sankt Paulsgatan 17, Stockholm",
   rating: rand(1..5), description: "Great spot",
   link: "https://www.tripadvisor.com/Restaurant_Review-g189852-d3530028-Reviews-Kaffe-Stockholm.html",
-  sun_start: "06:35",
-  sun_end: "20:35",
+  sun_start: "09:35",
+  sun_end: "19:35"
   review: "Nice brunch place in Stockholm, on weekends gets quite busy, the waitress was super nice with us. Food was pretty good. Avg price in the city.Pretty sunny location"
   )
 
@@ -72,7 +73,7 @@ johan = Spot.create(
   description: "Great spot",
   link: "https://johanochnystrom.com/",
   sun_start: "06:35",
-  sun_end: "20:35",
+  sun_end: "19:35"
   review:"Just amazing  Definitely I will be back"
   )
 
