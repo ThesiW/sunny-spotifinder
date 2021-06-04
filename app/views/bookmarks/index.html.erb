@@ -8,15 +8,14 @@
         <% @bookmarks.each do |bookmark| %>
         <%= link_to bookmark_path(bookmark) do %>
           <div class="spot-bookmark-card container grid-container mr-3 mt-3">
-<!--             <h3 class="mb-0 pt-3"><%#= @spot.name %></h3>
- -->            <div class="d-flex justify-content-evenly justify-content-between mt-3">
+            <h3 class="mb-0 pt-3"><%= bookmark.first.spot.name %></h3>
+            <div class="d-flex justify-content-evenly justify-content-between mt-3">
               <div class="spot-index-img">
-                <%#= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
+                <%= cl_image_tag bookmark.first.spot.photos.first.key, crop: :fit if bookmark.first.spot.photos.attached? %>
               </div>
               <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                 <div class="spot-bookmark-details">
-                <p class="d-flex justify-content-center"><%= @difference_hours %><%= @difference_minutes %>h of remaining sun</p>
-                  <p>distance</p>
+                <p class="d-flex justify-content-center"><%= bookmark[1][0] %><%= bookmark[1][1] %>h of remaining sun</p>
                 </div>
               </div>
             </div>
@@ -24,9 +23,6 @@
         <% end %>
         <% end %>
       </div>
-
-
-
 
        <div class="bookmark-map">
         <div

@@ -5,16 +5,21 @@
       <h1>My favourite spots</h1>
       <div class="spot-favourite-cards justify-content-between grid-container ">
         <% @favourites.each do |favourite| %>
-        <%= link_to favourite_path(favourite) do %>
+        <%= link_to spot_path(favourite.spot) do %>
           <div class="spot-favourite-card container grid-container mr-3 mt-3">
-            <h3 class="mb-0 pt-3"><%#= spot.name %></h3>
+
             <div class="d-flex justify-content-evenly justify-content-between mt-3">
               <div class="spot-favourite-img">
-                <%#= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
+                <%= cl_image_tag favourite.spot.photos.first.key, crop: :fit if favourite.spot.photos.attached? %>
               </div>
               <div class="spot-favourite-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                 <div class="spot-favourite-details">
-                  <p class="d-flex justify-content-center"><%= @difference_hours %><%= @difference_minutes %>h of remaining sun</p>
+                  <p class="d-flex justify-content-center">
+                  <%= favourite.spot.name %>
+                    <h3>
+                      <%= favourite.spot.time_difference[:hour] %><%= favourite.spot.time_difference[:minutes] %>h of remaining sun
+                    </h3>
+                  </p>
                 </div>
               </div>
             </div>
