@@ -2,6 +2,13 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmarks = current_user.bookmarks
+    @markers = @bookmarks.map do |bookmark|
+    spot = bookmark.spot
+      {
+        lat: spot.latitude,
+        lng: spot.longitude
+      }
+    end
   end
 
   def create
@@ -18,7 +25,5 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to spot_path(@bookmark.spot)
   end
-
-
 end
 
