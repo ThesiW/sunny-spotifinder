@@ -29,12 +29,13 @@
             <div class="spot-index-card container grid-container mr-3 mt-3">
               <h3 class="mb-0 pt-3"><%= spot.name %></h3>
               <div class="d-flex justify-content-evenly justify-content-between mt-3">
-                <div class="spot-index-img">
+                <div class="spot-index-img h-100">
                   <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
                 </div>
-                <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
+                <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3">
                   <div class="spot-index-details">
-                    <p class="d-flex justify-content-center"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+                    <p class="d-flex justify-content-center" style="font-size: 20px"><b><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</b></p>
+                      <p class="d-flex justify-content-center" style="font-weight: 100">9.30 - 16.00h</p>
                     <div class="stars d-flex justify-content-center">
                       <% spot.rating.to_i.times do %>
                         <i class="fas fa-star "></i>
