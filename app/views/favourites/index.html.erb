@@ -4,18 +4,17 @@
     <div class="col-sm-8 offset-sm-2">
       <h1>My favourite spots</h1>
       <div class="spot-favourite-cards justify-content-between grid-container ">
-        <% @spots.each do |spot| %>
-        <%= link_to spot_path(spot) do %>
+        <% @favourites.each do |favourite| %>
+        <%= link_to favourite_path(favourite) do %>
           <div class="spot-favourite-card container grid-container mr-3 mt-3">
-            <h3 class="mb-0 pt-3"><%= spot.name %></h3>
+            <h3 class="mb-0 pt-3"><%#= spot.name %></h3>
             <div class="d-flex justify-content-evenly justify-content-between mt-3">
               <div class="spot-favourite-img">
-                <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
+                <%#= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
               </div>
               <div class="spot-favourite-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                 <div class="spot-favourite-details">
-                  <p class="mt-0 mb-3">6h of sun</p>
-                  <p>distance</p>
+                  <p class="d-flex justify-content-center"><%= @difference_hours %><%= @difference_minutes %>h of remaining sun</p>
                 </div>
               </div>
             </div>
@@ -24,22 +23,7 @@
         <% end %>
       </div>
 
-      <div>
-          <% @favourites.each do |favourite| %>
-              <div>
-                <%= "status:" %>
-                <%= favourite.status %>
-              </div>
-              <div>
-                <%= "spot address:" %>
-                <%= favourite.spot.address %>
-              </div>
-              <div>
-                <%= "user:" %>
-                <%= favourite.user.username %>
-              </div>
-          <% end %>
-        </div>
+
 
        <div class="favourite-map">
         <div
