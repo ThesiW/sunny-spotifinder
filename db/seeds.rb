@@ -121,6 +121,23 @@ end
 beck.save!
 
 
+drop = Spot.create(
+  name: "Drop Coffee",
+  address: "Wollmar Yxkullsgatan 10, Stockholm",
+  rating: rand(1..5),
+  description: "Great spot",
+  link: "https://www.dropcoffee.com/",
+  sun_start: "08:35",
+  sun_end: "22:35",
+  review:"Wonderful, beautiful very sunny spot with great coffee"
+ )
+
+['https://cdn.shopify.com/s/files/1/0235/7459/t/18/assets/footer_slide_3.png?v=16230210995616577380', 'https://www.allakartor.se/venue_images_475/148882_48446780.jpg', 'https://www.allakartor.se/venue_images_475/148882_37427961.jpg'].each do |url|
+  drop.photos.attach(io: URI.open(url), filename: 'picture', content_type: 'image/jpg')
+end
+drop.save!
+
+
  beck_b = Bookmark.create!(
     status: true,
     spot: beck,
@@ -193,21 +210,7 @@ savant.save!
 
 # ----
 
-drop = Spot.create(
-  name: "Drop Coffee",
-  address: "Wollmar Yxkullsgatan 10, Stockholm",
-  rating: rand(1..5),
-  description: "Great spot",
-  link: "https://www.dropcoffee.com/",
-  sun_start: "08:35",
-  sun_end: "22:35",
-  review:"Wonderful, beautiful very sunny spot with great coffee"
- )
 
-['https://cdn.shopify.com/s/files/1/0235/7459/t/18/assets/footer_slide_3.png?v=16230210995616577380', 'https://www.allakartor.se/venue_images_475/148882_48446780.jpg', 'https://www.allakartor.se/venue_images_475/148882_37427961.jpg'].each do |url|
-  drop.photos.attach(io: URI.open(url), filename: 'picture', content_type: 'image/jpg')
-end
-drop.save!
 
 Favourite.create!(
     status: true,
