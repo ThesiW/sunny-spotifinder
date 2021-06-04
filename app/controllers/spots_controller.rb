@@ -1,5 +1,7 @@
 class SpotsController < ApplicationController
 
+require 'time'
+
   def index
     @spots = Spot.all
     @markers = @spots.geocoded.map do |spot|
@@ -15,7 +17,24 @@ class SpotsController < ApplicationController
     else
       @spot= Spot.all
     end
+
+
   end
+
+  def time_difference
+    @spot = Spot.find(params[:id])
+    a = Time.now.to_i
+    b = "#{Date.today} #{@spot.sun_end}".to_datetime.to_i
+
+    @difference_hours = (b - a) / 3600
+    @difference_minutes = ((b - a) - (@difference_hours * 3600) > 1800) ? ",5" : ""
+    if @difference_hours > 0
+      @difference_hours
+    else
+      "No sun until tomorrow"
+    end
+  end
+
 
   def show
 
@@ -29,6 +48,8 @@ class SpotsController < ApplicationController
    @bookmark = Bookmark.new
    @favourite = Favourite.new
    @visit = Visit.new
+  time_difference
+
     end
   end
 

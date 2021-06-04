@@ -1,0 +1,7 @@
+require 'time'
+
+<% a = Time.now %>
+raise
+<% b = @spot.sun_end %>
+
+<%= time_difference(a, b) %>
