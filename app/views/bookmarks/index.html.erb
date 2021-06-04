@@ -1,12 +1,30 @@
 
-
-
 <div class="container mt-2">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
+      <h1>All bookmarked spots</h1>
 
+      <div class="spot-bookmark-cards justify-content-between grid-container ">
+        <% @spots.each do |spot| %>
+        <%= link_to spot_path(spot) do %>
+          <div class="spot-bookmark-card container grid-container mr-3 mt-3">
+            <h3 class="mb-0 pt-3"><%= spot.name %></h3>
+            <div class="d-flex justify-content-evenly justify-content-between mt-3">
+              <div class="spot-index-img">
+                <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
+              </div>
+              <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
+                <div class="spot-bookmark-details">
+                  <p class="mt-0 mb-3">6h of sun</p>
+                  <p>distance</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
 
-      <h1>bookmarks</h1>
 
         <div>
           <% @bookmarks.each do |bookmark| %>

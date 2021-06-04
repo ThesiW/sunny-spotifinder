@@ -3,7 +3,7 @@
 <body class="index-body">
   <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
     <%= link_to "#", class: "avatar-bordered" do %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ThesiW", height: '100%' %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/rappmax", height: '100%' %>
     <% end %>
   </div>
 </body>
@@ -12,7 +12,12 @@
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
       <a class="btn-navy-index mb-1 d-flex justify-content-center mt-6 w-100" href="/spots/randomise" style="font-size: 16px;">Can't decide?</a>
-      <div id="map" style="width: 100%; height: 30vh; border-radius: 4px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      <div
+        id="map"
+        style="width: 100%; height: 30vh; border-radius: 4px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
         <div class="spot-index-cards justify-content-between grid-container ">
           <% @spots.each do |spot| %>
 

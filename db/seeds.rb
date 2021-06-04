@@ -129,22 +129,21 @@ beck.save!
 
 # ----
 
-delico = Spot.create(
-  name: "Delico Kaffehandel",
-  address: "Medborgarplatsen 3, Stockholm",
+pascal = Spot.create(
+  name: "Café Pascal",
+  address: "Skånegatan 76, Stockholm",
   rating: rand(1..5),
-  description: "Great spot",
-  link: "https://www.soderhallarna.se/soderhallarna-a-o/delico/",
+  description: "They serve soup and sandwiches for lunch. Very cosy place!",
+  link: "https://cafepascal.se/",
   sun_start: 0635,
   sun_end: 2035
   )
-[].each do |url|
-  delico.photos.attach(io: URI.open(url), filename: 'picture', content_type: 'image/jpg')
+['https://lh5.googleusercontent.com/p/AF1QipPKeb_AciRSEgmdzqbyvOpwo3jjYB_yl8YEoW8G=s812-k-no', 'https://lh5.googleusercontent.com/p/AF1QipM9l8kZyieKjcZVhlNH3gk4S9gYxyYimIiql9lu=s1031-k-no', 'https://lh5.googleusercontent.com/p/AF1QipPGEw6pCQgS0IO3qaaeqIodSpaUXhhCwgJwyh7B=s773-k-no'].each do |url|
+  pascal.photos.attach(io: URI.open(url), filename: 'picture', content_type: 'image/jpg')
 end
-delico.save!
+pascal.save!
 
 # ----
-
 
 savant = Spot.create(
   name: "Savant Bar",
