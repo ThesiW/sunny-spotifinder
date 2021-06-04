@@ -11,6 +11,7 @@ class SpotsController < ApplicationController
 
     if params[:query].present?
       @spot = Spot.where(title: params[:query])
+
     else
       @spot= Spot.all
     end
@@ -19,7 +20,7 @@ class SpotsController < ApplicationController
   def show
 
    @spot = Spot.find(params[:id])
-   @markers =
+   @markers = @spots.map do |spot|
 
       [{
         lat: @spot.geocode[0],
@@ -28,6 +29,7 @@ class SpotsController < ApplicationController
    @bookmark = Bookmark.new
    @favourite = Favourite.new
    @visit = Visit.new
+    end
   end
 
   def randomise
