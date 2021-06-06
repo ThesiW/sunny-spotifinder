@@ -1,10 +1,58 @@
 
 <body class="homepage-body">
-  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
-    <%= link_to "#", class: "avatar-bordered" do %>
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" src=""> -->
+      <%= link_to "#", class: "avatar-bordered" do %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/rappmax", height: '100%' %>
-    <% end %>
+      <% end %>
+    <!-- </button> -->
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown pl-2 show">
+           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" src="https://res.cloudinary.com/dxiatpprs/image/upload/v1622037671/Mask_Group_1_agdpry.png">
+          <div class="dropdown-menu dropdown-menu-right show" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/">My Profile</a>
+            <a class="dropdown-item" href="/vists">Visited Spots</a>
+            <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+          </div>
+        </li>
+    </ul>
   </div>
+
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item dropdown pl-2 show">
+          <img class="avatar-bordered avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" src="https://kitt.lewagon.com/placeholder/users/rappmax">
+        </li>
+
+        <div class="dropdown-menu dropdown-menu-right show" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/">My Profile</a>
+            <a class="dropdown-item" href="/vists">Visited Spots</a>
+            <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+          </div> -->
+
+        <!-- <li class="nav-item active">
+          <%=# link_to "", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%=# link_to "", "#", class: "nav-link" %>
+        </li>
+         <li class="nav-item">
+          <%#= link_to "Logout", "#", class: "nav-link" %>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+
+
   <h2 class="d-flex justify-content-start pl-3">Welcome!</h2>
 
 <!-- Samir's Weather API -->
