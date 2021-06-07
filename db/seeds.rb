@@ -9,7 +9,7 @@ User.destroy_all
 
 max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "sunnyboy")
 thesi = User.create(email: "theresa@gmail.com", password: "123456", username: "ThesiW")
-samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami")
+# samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami")
 vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "vincent")
 
 

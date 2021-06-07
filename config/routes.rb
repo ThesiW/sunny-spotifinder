@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index, :update, :destroy]
   resources :favourites, only: [:index, :update, :destroy]
   resources :visits, only: [:index, :destroy]
+  resources :users, only: [:index, :show]
+
 end

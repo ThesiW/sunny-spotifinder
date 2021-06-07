@@ -27,3 +27,4 @@ class BookmarksController < ApplicationController
   end
 end
 
+

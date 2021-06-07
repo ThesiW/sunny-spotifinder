@@ -3,16 +3,30 @@
   margin-top: 10px;
   color: black;
   box-shadow: 0px 4px 13px -1px #D3D4DA;
-  height: 25vh;
   border-radius: 8px;
-  bottom: 0;
-  left: 10px;
-  top: 110px;
+ display: flex;
+ flex-flow: column;
+ justify-content: center;
   width: 30%;
-  height: 19vh;
-  display: block;
+  height: 21vh;
+ align-items: center;
+
 }
 
+// .weather-card {
+//   background-color: white;
+//   margin-top: 10px;
+//   color: black;
+//   box-shadow: 0px 4px 13px -1px #D3D4DA;
+//   height: 25vh;
+//   border-radius: 8px;
+//   bottom: 0;
+//   left: 10px;
+//   top: 110px;
+//   width: 30%;
+//   height: 19vh;
+//   display: block;
+// }
 .weather-card p {
   font-size: 24px;
 }
