@@ -23,8 +23,6 @@
       </div>
         <div class="spot-index-cards justify-content-between grid-container ">
           <% @spots.each do |spot| %>
-
-
             <%= link_to spot_path(spot) do %>
 
             <div class="spot-index-card container grid-container mr-3 mt-3">
@@ -41,6 +39,9 @@
                       <% spot.rating.to_i.times do %>
                         <i class="fas fa-star "></i>
                       <% end %>
+                      <%(5 - spot.rating.to_i).times do %>
+                       <i class="far fa-star"></i>
+                      <%end %>
                     </div>
                   </div>
                   <!-- insert distance of spot -->

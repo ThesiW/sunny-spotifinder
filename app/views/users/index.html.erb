@@ -14,5 +14,6 @@
         <div class="useremail-info">
            Email: <%= current_user.email %>
       </div>
+      <%= link_to "sign out",  destroy_user_session_path, method: :delete%>
 
 </div>
