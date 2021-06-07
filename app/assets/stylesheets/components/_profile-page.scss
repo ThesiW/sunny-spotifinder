@@ -1,0 +1,33 @@
+.profile-container{
+  display:flex;
+  flex-flow:column;
+  height:100%;
+  width:100%;
+  padding:0 10px;
+
+  .profile-user{
+    display:flex;
+    justify-content:left;
+  }
+
+  .profile-picture{
+    display:flex;
+    flex-flow:column;
+    align-items:center;
+  }
+}
+
+.username-info{
+  margin-top:50px;
+  display:flex;
+  flex-flow:row;
+  font-size:16px;
+  color:#000000;
+}
+
+.useremail-info{
+  display:flex;
+  flex-flow:row;
+  font-size:16px;
+  color:#000000;
+}

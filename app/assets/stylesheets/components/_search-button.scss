@@ -3,11 +3,18 @@
   position: relative;
 
 }
+.search-container {
+  position: relative;
 
+}
 .search-btn {
-  position: absolute;
+  position: relative;
  z-index: 4;
- width: 91%;
+ width: 100%;
+
+ &.hidden {
+   visibility: hidden;
+   }
 
 }
 .search {
@@ -20,20 +27,24 @@
   padding: 12px;
 }
 
-.hidden {
-   visibility: hidden;
-}
-
 .search-icon-wraper{
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  top: 0;
 
 .search-icon {
     position: absolute;
     z-index: 3;
-    font-size: 30px;
+    font-size: 20px;
     width: auto;
     right: 0;
     color: grey;
-    padding: 10px;
+    padding: 7px;
+    margin-top: 2px;
+    margin-right: 1px;
+      background-color:white;
+
 }
 }

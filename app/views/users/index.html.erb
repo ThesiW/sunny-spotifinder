@@ -1,0 +1,18 @@
+<div class="profile-container">
+  <h2 class="profile-user">Hello, <%=current_user.username %>!</h2>
+    <div class="profile-picture navbar-top mt-3">
+        <%= link_to "/users", class: "avatar-bordered large border" do %>
+         <!-- This is the user sign in avatar setup -->
+            <% if user_signed_in? %>
+             <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+            <% end %>
+        <% end %>
+
+        <div class="username-info">
+          Name:  <%=current_user.username %>
+        </div>
+        <div class="useremail-info">
+           Email: <%= current_user.email %>
+      </div>
+
+</div>

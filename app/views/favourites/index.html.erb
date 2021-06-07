@@ -1,32 +1,40 @@
 
-<div class="container mt-2">
-  <div class="row">
-    <div class="col-sm-8 offset-sm-2">
-      <h1>My favourite spots</h1>
-      <div class="spot-favourite-cards justify-content-between grid-container ">
-        <% @favourites.each do |favourite| %>
-        <%= link_to spot_path(favourite.spot) do %>
-          <div class="spot-favourite-card container grid-container mr-3 mt-3">
+   <div class="nav-top-container navbar-top mt-3">
+      <%= link_to "/users", class: "avatar-bordered" do %>
+      <!-- for the user sign up avatar -->
+          <% if user_signed_in? %>
+           <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+          <% end %>
+      <% end %>
+   </div>
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+              <h1>My favourite spots</h1>
+              <div class="spot-favourite-cards justify-content-between grid-container ">
+                <% @favourites.each do |favourite| %>
+                <%= link_to spot_path(favourite.spot) do %>
+                  <div class="spot-favourite-card container grid-container mr-3 mt-3">
 
-            <div class="d-flex justify-content-evenly justify-content-between mt-3">
-              <div class="spot-favourite-img">
-                <%= cl_image_tag favourite.spot.photos.first.key, crop: :fit if favourite.spot.photos.attached? %>
+                    <div class="d-flex justify-content-evenly justify-content-between mt-3">
+                      <div class="spot-favourite-img">
+                        <%= cl_image_tag favourite.spot.photos.first.key, crop: :fit if favourite.spot.photos.attached? %>
+                      </div>
+                      <div class="spot-favourite-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
+                        <div class="spot-favourite-details">
+                          <p class="d-flex justify-content-center">
+                          <%= favourite.spot.name %>
+                            <h3>
+                              <%= favourite.spot.time_difference[:hour] %><%= favourite.spot.time_difference[:minutes] %>h of remaining sun
+                            </h3>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+                <% end %>
               </div>
-              <div class="spot-favourite-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
-                <div class="spot-favourite-details">
-                  <p class="d-flex justify-content-center">
-                  <%= favourite.spot.name %>
-                    <h3>
-                      <%= favourite.spot.time_difference[:hour] %><%= favourite.spot.time_difference[:minutes] %>h of remaining sun
-                    </h3>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        <% end %>
-      </div>
 
 
 

@@ -7,17 +7,15 @@
 
 =======
 <p><%= @spot.sun_end%></p> -->
-<!--  <div>
-  <%# if user_signed_in? %>
-   <%#= cl_image_tag current_user.user_picture, class:"avatar-bordered" %>
-  <%#end %>
- </div>
- -->
+
+
 
  <body class="show-body" style="background-color: #F5FCFF; color: black;">
-  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
-    <%= link_to "#", class: "avatar-bordered" do %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/rappmax", height: '100%' %>
+  <div class="nav-top-container navbar-top mt-3">
+    <%= link_to "/users", class: "avatar-bordered" do %>
+          <% if user_signed_in? %>
+          <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+          <% end %>
     <% end %>
   </div>
 </body>
@@ -27,8 +25,8 @@
     <div class="col-sm-8 offset-sm-2">
       <div class="show-name">
         <h1 class="d-flex justify-content-center" style="margin-top: 40px;"> <%= @spot.name %> </h1>
-        <p class="d-flex justify-content-center"><%= @spot.time_difference[:hour] %><%= @spot.time_difference[:minutes] %>h of remaining sun</p>
-      </div>
+<!--          <p class="d-flex justify-content-center"><#%= @spot.time_difference[:hour] %><#%= @spot.time_difference[:minutes] %>h of remaining sun</p>
+ -->      </div>
 
       <div class="carousel-card">
         <div id="carouselExampleIndicators" class="carousel-slide" data-ride="carousel">
@@ -56,7 +54,14 @@
     </div>
 
       <div class="show-details-card">
-        <div class="bookmark-favourite d-flex justify-content-end pt-2">
+
+        <div class="favourite-top">
+           <div class="each-rating">
+            <% @spot.rating.to_i.times do %>
+              <i class="fas fa-star "></i>
+            <% end %>
+           </div>
+        <div class="bookmark-favourite ratings justify-content-end pt-2">
           <div class="bookmark-button mr-2 mt-2">
             <% if Bookmark.find_by(spot: @spot, user: current_user)%>
                 <%= link_to bookmark_path(Bookmark.find_by(spot: @spot, user: current_user)), :method => :delete do %>
@@ -80,15 +85,34 @@
             <% end %>
           </div>
         </div>
-          <div class="stars d-flex justify-content-start ml-3">
-            <% @spot.rating.to_i.times do %>
-              <i class="fas fa-star "></i>
-            <% end %>
-          </div>
-          <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
       </div>
-          <a class="btn-main-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
-          <a class="btn-navy-show mb-1 mr-1 d-flex justify-content-between mt-3" href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+            <strong class="review-titlte">Reviews</strong>
+
+          <div class="stars ratings justify-content-start ml-3 ">
+
+            <div class="review-container">
+            <% @spot.reviews.each do |review| %>
+                <div class="review-row"> <div class="author"> <div class="avatar-bordered small" >
+                      <% if user_signed_in? %>
+                          <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+                          <% end %>
+                        </div>
+                          <%=current_user.username %></div> <div class="comment"> <%=review.comment %> </div></div>
+                      <%end %>
+                  <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
+
+            </div>
+            <div  class="review-container btn" >
+           <div class="btn-small  mr-1 d-flex justify-content-between" href="/spots/:spot_id/reviews/new" style="font-size: 12px;"><i class="fas fa-pen"></i> <%= link_to "add a review", new_spot_review_path(@spot) %></div>
+          <a class="btn-small   mr-1 d-flex justify-content-between " href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
+          <a class="btn-small-navy   mr-1 d-flex justify-content-between " href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+
+</div>
+            </div>
+
+
+
+      </div>
 
 
       </div>

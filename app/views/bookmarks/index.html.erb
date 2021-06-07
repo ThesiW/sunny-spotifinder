@@ -1,7 +1,9 @@
 <body class="show-body" style="background-color: #F5FCFF; color: black;">
-  <div class="navbar navbar-expand-sm navbar-light navbar-top mt-3">
-    <%= link_to "#", class: "avatar-bordered" do %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/rappmax", height: '100%' %>
+  <div class="nav-top-container navbar-top mt-3">
+    <%= link_to "/users", class: "avatar-bordered" do %>
+            <% if user_signed_in? %>
+            <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+            <% end %>
     <% end %>
   </div>
 </body>
