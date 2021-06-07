@@ -7,9 +7,12 @@ require 'time'
     @markers = @spots.geocoded.map do |spot|
       {
         lat: spot.latitude,
-        lng: spot.longitude
+        lng: spot.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { spot: spot }),
+        image_url: helpers.asset_url('map-marker-alt-solid.svg')
       }
     end
+
     if params[:query].present?
       @spot = Spot.where(title: params[:query])
     else
