@@ -16,7 +16,7 @@
         <% @bookmarks.each do |bookmark| %>
         <%= link_to bookmark_path(bookmark) do %>
           <div class="spot-bookmark-card container grid-container mr-3 mt-3">
-            <h3 class="mb-0 pt-3"><%= bookmark.spot.name %></h3>
+            <h3 class="mb-0 pt-3"><%= bookmark.spot.name %><i class="fas fa-bookmark bookmark-icon"></i></h3>
             <div class="d-flex justify-content-evenly justify-content-between mt-3">
               <div class="spot-index-img">
                 <%= cl_image_tag bookmark.spot.photos.first.key, crop: :fit if bookmark.spot.photos.attached? %>

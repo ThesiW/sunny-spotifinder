@@ -16,14 +16,9 @@ class VisitsController < ApplicationController
     end
   end
 
-
-
-
-
   private
 
   def visit_params
     params.require(:visit).permit(:spot_id)
   end
-
 end
