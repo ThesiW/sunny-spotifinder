@@ -1,3 +1,6 @@
+require 'csv'
+require 'date'
+
 class SpotsController < ApplicationController
 
 require 'time'
@@ -28,6 +31,50 @@ require 'time'
     @bookmark = Bookmark.new
     @favourite = Favourite.new
     @visit = Visit.new
+
+    csv_options = { col_sep: ',', force_quotes: true, quote_char: '"' }
+
+# input to python
+    filepath = 'app/controllers/file.csv'
+    a = Time.now.to_i
+    b = "#{Date.today} 23:59".to_datetime.to_i
+
+    @times = []
+    time = a
+
+    while time < b do
+      @times << (time - a) / 60
+      time += 1800
+    end
+
+    CSV.open('app/controllers/input.csv', 'w') do |csv|
+      @times.each do |row|
+        csv << [@spot.latitude, @spot.longitude, row]
+      end
+    end
+
+# output from python
+    filepath = 'app/controllers/output.csv'
+    @sunny_times = []
+    CSV.foreach(filepath) do |row|
+      @sunny_times << row[3]
+    end
+
+    # @sunny_now = false
+
+    # if @sunny_times[0] == 'true'
+    #   @sunny_now = true
+    # else
+    #   @sunny_now = false
+    # end
+
+    #sunny_from will say from now if it is sunny now
+    @sunny_from_index = @sunny_times.index{ |s| s == 'true' }
+    @sunny_until_index = @sunny_times.rindex { |s| s == 'true' }
+    #converts the position in the array to a datetime
+    @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index)))
+    @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index)))
+    raise
   end
 
   def randomise
