@@ -220,6 +220,7 @@ html_doc.search('.explore-item').each do |element|
    spot_number = element.search('span')[1].text
    spot_name = element.search('span')[2].text
    spot_address = element.search('span')[3].text if element.search('span')[3].present?
+
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    puts "Name of the spot: #{spot_name}"
    puts "Address of the spot: #{spot_address}"
