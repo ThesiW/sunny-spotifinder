@@ -34,18 +34,33 @@
 </div>
 
 
-
-
-
 <!-- Navbar Bottom:
  -->
 
-<div class="navbar-bottom">
-  <div class="ml-3 mr-3 d-flex justify-content-between">
-    <a href="/" class="btn-icon"><i class="fa fa-home"></i></a>
-    <a href="/bookmarks" class="btn-icon"><i class="fas fa-bookmark" class="active"></i></a>
-    <a href="/favourites" class="btn-icon"><i class="fas fa-sun" class="active"></i></a>
-    <a href="/" class="btn-icon"><i class="fas fa-search"></i></a>
 
+<div class="navbar-bottom">
+  <div class="ml-2 mr-2 d-flex justify-content-between">
+    <a href="/" class="btn-icon" style="padding: 8px 16px;"><i class="fa fa-home"></i></a>
+    <a href="/bookmarks" class="btn-icon" style="padding: 8px 16px;"><i class="fas fa-bookmark" class="active"></i></a>
+    <a href="/favourites" class="btn-icon" style="padding: 8px 16px;"><i class="fas fa-sun" class="active"></i></a>
+
+      <div class="btn-group dropup">
+          <span class="avatar-bordered">
+            <% if user_signed_in? %>
+             <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+            <% end %>
+          </span>
+        <div class="dropup-details">
+          <a href="/users">My Profile</a>
+          <a href="/visits">Visited Spots</a>
+          <a href="https://open.spotify.com/playlist/2a6vsZBdGrpYJBUyl2tyCV?si=769993c7e0d04d33">Sunny Vibes<i class="fab fa-spotify ml-1"></i></a>
+          <a rel="nofollow" data-method="delete" href="/users/sign_out">Log out</a>
+        </div>
+     </div>
   </div>
 </div>
+
+
+
+
+

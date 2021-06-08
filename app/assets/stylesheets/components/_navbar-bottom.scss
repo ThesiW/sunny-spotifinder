@@ -2,27 +2,42 @@
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar-bottom {
   background-color: white;
-  overflow: hidden;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 4;
-
 }
 
 /* Style the links inside the navigation bar */
 .navbar-bottom a {
   float: left;
   display: block;
-  color: black;
-  text-align: center;
-  padding: 8px 16px;
   text-decoration: none;
   font-size: 30px;
   border: none;
   background: transparent;
-  color: #91989B;
+  color: #243860;
 }
+
+.dropup {
+  position: relative;
+}
+
+.dropup-details {
+  position: absolute;
+  bottom: 70px;
+  right: 4px;
+  color: #243860;
+  background: white;
+  border: 2px solid #243860;
+  border-radius: 8px;
+  a {
+    font-size: 14px;
+    width: 120px;
+    padding: 5px;
+  }
+}
+
 
 
 .navbar-bottom span {
@@ -30,12 +45,15 @@
   display: block;
   color: black;
   text-align: center;
-  padding: 8px 16px;
   text-decoration: none;
   font-size: 30px;
   border: none;
   background: transparent;
   color: #91989B;
+}
+
+.dropup-details {
+  font-size: 12px;
 }
 
 /* Change the color of links on hover */

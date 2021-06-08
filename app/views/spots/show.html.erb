@@ -1,13 +1,3 @@
-<!--
-<p><%= @spot.address %></p>
-<p><%= @spot.pictures %></p>
-<p><%= @spot.sun_start %></p>
-
-
-
-
-<--<p><%#= @spot.sun_end%></p> -->
-
 
 
  <body class="show-body" style="background-color: #F5FCFF; color: black;">
@@ -93,8 +83,23 @@
             <strong class="review-titlte">Reviews</strong>
 
           <div class="stars ratings justify-content-start ml-3 ">
-
             <div class="review-container">
+              <% @spot.reviews.each do |review| %>
+                <div class="review-row">
+                  <div class="author">
+                  <div class="avatar-bordered small" >
+                    <% if user_signed_in? %>
+                        <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+                    <% end %>
+                  </div>
+                    <%=current_user.username %></div>
+                    <div class="comment"> <%=review.comment %> </div>
+                </div>
+              <% end %>
+              <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
+            </div>
+          <div  class="review-container btn">
+            <div class="btn-small mr-1 d-flex justify-content-between" href="/spots/:spot_id/reviews/new" style="font-size: 12px;"><i class="fas fa-pen"></i> <%= link_to "add a review", new_spot_review_path(@spot) %>
                <% @spot.reviews.reverse.each do |review| %>
                 <div class="review-row"> <div class="author"> <div class="avatar-bordered small" >
                   <% if user_signed_in? %>
@@ -119,7 +124,22 @@
 
       </div>
             </div>
+            <div class="visits-button mr-2 mt-2">
+              <% if Visit.find_by(spot: @spot, user: current_user)%>
+                <%= link_to visit_path(Visit.find_by(spot: @spot, user: current_user)), :method => :delete do %>
+                  <i class="fas fa-sun"></i>
+                <% end %>
+              <% else %>
+                <%= link_to spot_favourites_path(@spot), method: :post do %>
+                <a class="btn-small   mr-1 d-flex justify-content-between " href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
+                <% end %>
+              <% end %>
+            </div>
+          <a class="btn-small-navy mr-1 d-flex justify-content-between " href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+          </div>
+        </div>
 
+    </div>
 
 
      </div>
@@ -136,14 +156,7 @@
         </div>
 
 
-      <div class="navbar-bottom">
-        <div class="ml-3 mr-3 d-flex justify-content-between">
-          <a href="/" class="btn-icon"><i class="fa fa-home"></i></a>
-          <a href="/bookmarks" class="btn-icon"><i class="fas fa-bookmark" class="active"></i></a>
-          <a href="/favourites" class="btn-icon"><i class="fas fa-sun" class="active"></i></a>
-          <a href="/" class="btn-icon"><i class="fas fa-search"></i></a>
-        </div>
-      </div>
+
     </div>
 
 

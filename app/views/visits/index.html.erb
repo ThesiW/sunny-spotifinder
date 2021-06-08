@@ -1,15 +1,49 @@
-<!-- <p id="notice"><%= notice %></p>
- -->
 
-<!-- render "spots/index"
- --><!--
-render spot-index-cards -->
+
+<body class="show-body" style="background-color: #FFFEF9; color: black;"></body>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
-      <h1 id="visits" class="d-flex justify-content-center" style="margin-top: 30px; font-size: 33px; color: black;">All my visited spots:</h1>
+      <h3 id="visits" class="d-flex justify-content-center" style="margin-top: 30px; font-size: 33px; color: black;">Visited Spots</h3>
 
+      <div class="spot-bookmark-cards justify-content-between grid-container ">
+        <% @visits.each do |visit| %>
+        <%= link_to spot_path(visit.spot) do %>
+          <div class="spot-favourite-card container grid-container mr-3 mt-3">
+            <div class="header align-items-center">
+              <h3 class="mb-0 pt-3"><%= visit.spot.name %><i class="fas fa-sun sun-favourite ml-1"></i></h3>
+
+            </div>
+            <div class="d-flex justify-content-evenly justify-content-between mt-3">
+              <div class="spot-index-img">
+                <%= cl_image_tag visit.spot.photos.first.key, crop: :fit if visit.spot.photos.attached? %>
+              </div>
+              <div class="spot-favourite-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
+                <div class="spot-favourite-details">
+                  <p class="d-flex justify-content-center">
+                    <%= visit.spot.time_difference[:hour] %><%= visit.spot.time_difference[:minutes] %>h of sun
+                  <div class="stars d-flex justify-content-center">
+                    <% visit.spot.rating.to_i.times do %>
+                      <i class="fas fa-star "></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% end %>
+      </div>
+
+       <div class="favourite-map">
+        <div
+          id="map"
+          style="width: 100%; height: 21vh; border-radius: 8px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
     </div>
   </div>
 </div>
