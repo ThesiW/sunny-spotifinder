@@ -40,6 +40,9 @@
                       <% spot.rating.to_i.times do %>
                         <i class="fas fa-star "></i>
                       <% end %>
+                      <%(5 - spot.rating.to_i).times do %>
+                       <i class="far fa-star"></i>
+                      <%end %>
                     </div>
                   </div>
                   <!-- insert distance of spot -->
