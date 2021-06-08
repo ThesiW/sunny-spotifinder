@@ -21,6 +21,7 @@ require("channels")
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+
 // for weather
 
   import {initSelect2} from '../plugins/init_select2';
@@ -32,9 +33,14 @@ require("channels")
 // import { initSelect2 } from '../components/init_select2';
 
  import {fetchWeather} from '../component/index';
+  import {dropup} from '../component/navbar-dropdown';
+
 
   import {expotHideButton} from '../component/search';
   import {initAutocomplete} from '../component/autocomplete'
+  import { initStarRating } from '../plugins/init_star_rating';
+
+
 
 
 
@@ -47,4 +53,6 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   expotHideButton();
   initAutocomplete();
+  dropup();
+  initStarRating();
 });
