@@ -207,7 +207,6 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 # end
 require 'open-uri'
 require 'nokogiri'
-
 url = "https://www.google.fr/maps/search/caf%C3%A9/@59.316308,18.0746053,14z/data=!3m1!4b1"
 url_2 = "https://thatsup.se/stockholm/explore/cafe/"
 
@@ -215,6 +214,11 @@ p "I am there+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 html_file = URI.open(url_2).read
 html_doc = Nokogiri::HTML(html_file)
 p "I am here+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+html_doc.search('.explore-item').each do |element|
+   spot_number = element.search('span')[1].text
+   spot_name = element.search('span')[2].text
+   spot_address = element.search('span')[3].text if element.search('span')[3].present?
+   spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
 
 html_doc.search('.explore-item').each do |element|
    spot_number = element.search('span')[1].text
@@ -247,9 +251,4 @@ html_doc.search('.explore-item').each do |element|
    p spot.valid?
    p spot
 end
-
-
-
-
-
 

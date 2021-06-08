@@ -17,7 +17,9 @@ require 'time'
     end
 
     if params[:query].present?
-      @spot = Spot.where(title: params[:query])
+      search
+      @spot = Spot.where(select2: params[:query])
+      # redirect_to spot_visits_path(@spot)
     else
       @spot = Spot.all
     end
@@ -80,10 +82,22 @@ require 'time'
 
   end
 
-  def randomise
-    @spot ||= Spot.all.shuffle
-    @spot.pop
-  end
+  # def randomise
+  #   @spot ||= Spot.all.shuffle
+  #   @spot.pop
+  # end
+
+    def randomise
+     @spot = Spot.order("RANDOM()").first
+     redirect_to spot_path(@spot)
+   end
+
+  def search
+    @spot = Spot.find(params[:query])
+    redirect_to spot_path(@spot)
+   end
+
+
 
   private
 

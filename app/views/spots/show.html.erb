@@ -6,16 +6,12 @@
 <body class="show-body" style="background-color: #F5FCFF; color: black;"></body>
 
 
-
-
 <div class="container mt-2">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
       <div class="show-name">
-        <h1 class="d-flex justify-content-center" style="margin-top: 40px;"> <%= @spot.name %> </h1>
-<!--        <p class="d-flex justify-content-center"><#%= @spot.time_difference[:hour] %><#%= @spot.time_difference[:minutes] %>h of remaining sun</p>
- -->  </div>
-
+        <h1 class="d-flex justify-content-center" style="margin-top: 40px;"> <%= @spot.name %></h1>
+        
       <div class="carousel-card">
         <div id="carouselExampleIndicators" class="carousel-slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -112,6 +108,32 @@
                   </div>
                   <%= review.user.username %>
                 </div>
+                            <div class="stars d-flex user-rating">
+                                <% review.rating.to_i.times do %>
+                                 <i class="fas fa-star "></i>
+                                <% end %>
+                             </div>
+                            <%end %>
+                              <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review%></p>
+
+                        </div>
+
+                <div  class="review-container btn" >
+           <div class="btn-small  mr-1 d-flex justify-content-between" href="/spots/:spot_id/reviews/new" style="font-size: 12px;"><i class="fas fa-pen"></i> <%= link_to "add a review", new_spot_review_path(@spot) %></div>
+          <a class="btn-small   mr-1 d-flex justify-content-between " href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
+          <a class="btn-small-navy   mr-1 d-flex justify-content-between " href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+
+      </div>
+            </div>
+
+            <div class="visits-button mr-2 mt-2">
+              <% if Visit.find_by(spot: @spot, user: current_user)%>
+                <%= link_to visit_path(Visit.find_by(spot: @spot, user: current_user)), :method => :delete do %>
+                  <i class="fas fa-sun"></i>
+                <% end %>
+              <% else %>
+                <%= link_to spot_favourites_path(@spot), method: :post do %>
+                <a class="btn-small   mr-1 d-flex justify-content-between " href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
                 <div class="comment">
                   <%= review.comment%>
                 </div>
