@@ -8,6 +8,25 @@
   top: 0px
 }
 
+.favourite-header h1 {
+  color: black;
+  font-size: 30px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.spot-favourite-img img {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  margin-left: 5px;
+  overflow: hidden;
+   max-height: 100px;
+  max-width: 145px;
+}
 
 .favourite-map {
   background-color: white;
@@ -28,6 +47,13 @@
   border-radius: 8px;
   // margin-right: 10px;
 }
+
+.spot-favourite-cards {
+  height: 53vh;
+  padding: 10px;
+  margin: 10px;
+}
+
 
 .spot-favourite-card h3 {
   display: flex;
