@@ -1,21 +1,17 @@
 
 
-<%= image_tag "logo.png", class: "logo" %>
+<%= image_tag "LogoMakr-7pIBgM.png", class: "logo" %>
 
 
-<body class="show-body" style="background-color: #F5FCFF; color: black;">
+<body class="show-body" style="background-color: #F5FCFF; color: black;"></body>
 
-</body>
+
 <div class="container mt-2">
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
       <div class="show-name">
         <h1 class="d-flex justify-content-center" style="margin-top: 40px;"> <%= @spot.name %></h1>
-
-
-<!--          <p class="d-flex justify-content-center"><#%= @spot.time_difference[:hour] %><#%= @spot.time_difference[:minutes] %>h of remaining sun</p>
- -->      </div>
-
+        
       <div class="carousel-card">
         <div id="carouselExampleIndicators" class="carousel-slide" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -38,71 +34,79 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
+      </div>
+
       <div class="show-details-card">
-
         <div class="favourite-top">
-           <div class="each-rating">
-            <%@spot.rating.to_i.times do %>
-              <i class="fas fa-star "></i>
-            <%end %>
-            <%(5 - @spot.rating.to_i).times do %>
+          <div class="each-rating">
+            <% @spot.rating.to_i.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - @spot.rating.to_i).times do %>
               <i class="far fa-star"></i>
-            <%end %>
-           </div>
+            <% end %>
+          </div>
 
 
-        <div class="bookmark-favourite ratings justify-content-end pt-2">
-          <div class="bookmark-button mr-2 mt-2">
-            <% if Bookmark.find_by(spot: @spot, user: current_user)%>
-                <%= link_to bookmark_path(Bookmark.find_by(spot: @spot, user: current_user)), :method => :delete do %>
-                  <i class="fas fa-bookmark mr-2"></i>
+          <div class="bookmark-favourite ratings justify-content-end pt-2">
+            <div class="bookmark-button mr-2 mt-2">
+              <% if Bookmark.find_by(spot: @spot, user: current_user)%>
+                  <%= link_to bookmark_path(Bookmark.find_by(spot: @spot, user: current_user)), :method => :delete do %>
+                    <i class="fas fa-bookmark mr-2"></i>
+                  <% end %>
+              <% else %>
+                <%= link_to spot_bookmarks_path(@spot), method: :post do %>
+                  <i class="far fa-bookmark"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="favourite-button mr-2 mt-2">
+              <% if Favourite.find_by(spot: @spot, user: current_user)%>
+                <%= link_to favourite_path(Favourite.find_by(spot: @spot, user: current_user)), :method => :delete do %>
+                  <i class="fas fa-sun"></i>
                 <% end %>
               <% else %>
-              <%= link_to spot_bookmarks_path(@spot), method: :post do %>
-                <i class="far fa-bookmark"></i>
+                <%= link_to spot_favourites_path(@spot), method: :post do %>
+                  <i class="far fa-sun"></i>
+                <% end %>
               <% end %>
-            <% end %>
-          </div>
-          <div class="favourite-button mr-2 mt-2">
-            <% if Favourite.find_by(spot: @spot, user: current_user)%>
-              <%= link_to favourite_path(Favourite.find_by(spot: @spot, user: current_user)), :method => :delete do %>
-                <i class="fas fa-sun"></i>
-              <% end %>
-            <% else %>
-              <%= link_to spot_favourites_path(@spot), method: :post do %>
-                <i class="far fa-sun"></i>
-              <% end %>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
-            <strong class="review-titlte">Reviews</strong>
 
-          <div class="stars ratings justify-content-start ml-3 ">
-            <div class="review-container">
-              <% @spot.reviews.each do |review| %>
-                <div class="review-row">
-                  <div class="author">
+        <strong class="review-titlte">Reviews</strong>
+
+        <div class="stars ratings justify-content-start ml-3 ">
+          <div class="review-container">
+            <% @spot.reviews.each do |review| %>
+              <div class="review-row">
+                <div class="author">
                   <div class="avatar-bordered small" >
                     <% if user_signed_in? %>
-                        <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
+                        <%= cl_image_tag current_user.user_picture, class: "avatar-img" %>
                     <% end %>
                   </div>
-                    <%=current_user.username %></div>
-                    <div class="comment"> <%=review.comment %> </div>
+                  <%= current_user.username %>
                 </div>
-              <% end %>
-              <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
-            </div>
-          <div  class="review-container btn">
-            <div class="btn-small mr-1 d-flex justify-content-between" href="/spots/:spot_id/reviews/new" style="font-size: 12px;"><i class="fas fa-pen"></i> <%= link_to "add a review", new_spot_review_path(@spot) %>
-               <% @spot.reviews.reverse.each do |review| %>
-                <div class="review-row"> <div class="author"> <div class="avatar-bordered small" >
-                  <% if user_signed_in? %>
+                  <div class="comment">
+                    <%= review.comment %>
+                  </div>
+              </div>
+            <% end %>
+            <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review %></p>
+          </div>
+        </div>
+        <div  class="review-container">
+          <div class="btn-small mr-1 d-flex justify-content-between" href="/spots/:spot_id/reviews/new" style="font-size: 12px;"><i class="fas fa-pen"></i> <%= link_to "add a review", new_spot_review_path(@spot) %>
+             <% @spot.reviews.reverse.each do |review| %>
+              <div class="review-row">
+                <div class="author">
+                  <div class="avatar-bordered small" >
+                    <% if user_signed_in? %>
                       <%= cl_image_tag review.user.user_picture, class:"avatar-img" %>
-                      <% end %>
-                    </div>
-                      <%=review.user.username %></div> <div class="comment"> <%=review.comment%> </div>
+                    <% end %>
+                  </div>
+                  <%= review.user.username %>
                 </div>
                             <div class="stars d-flex user-rating">
                                 <% review.rating.to_i.times do %>
@@ -130,38 +134,53 @@
               <% else %>
                 <%= link_to spot_favourites_path(@spot), method: :post do %>
                 <a class="btn-small   mr-1 d-flex justify-content-between " href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
+                <div class="comment">
+                  <%= review.comment%>
+                </div>
+              </div>
+              <div class="stars d-flex user-rating">
+                <% review.rating.to_i.times do %>
+                 <i class="fas fa-star "></i>
                 <% end %>
-              <% end %>
-            </div>
-          <a class="btn-small-navy mr-1 d-flex justify-content-between " href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+              </div>
+            <% end %>
+            <p class="spot-review mt-3" style="font-size: 12px;"><%= @spot.review%></p>
+
+          </div>
+          <div class="review-container btn" >
+            <div class="btn-small mr-1 d-flex justify-content-between" href="/spots/:spot_id/reviews/new" style="font-size: 12px;"><i class="fas fa-pen"></i> <%= link_to "add a review", new_spot_review_path(@spot) %></div>
+            <a class="btn-small mr-1 d-flex justify-content-between " href="/visits" style="font-size: 12px;"><i class="fas fa-plus-circle"></i>Add to Visits</a>
+            <a class="btn-small-navy   mr-1 d-flex justify-content-between " href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
           </div>
         </div>
 
-    </div>
+        <div class="visits-button mr-2 mt-2">
+          <% if Visit.find_by(spot: @spot, user: current_user)%>
+            <%= link_to visit_path(Visit.find_by(spot: @spot, user: current_user)), :method => :delete do %>
+              <i class="far fa-plus-square mr-2"></i>
+            <% end %>
+          <% else %>
+            <%= link_to spot_visits_path(@spot), method: :post do %>
+              <i class="fas fa-plus-square"></i>
+            <% end %>
+          <% end %>
+        </div>
 
 
-     </div>
-
-
+        <a class="btn-small-navy mr-1 d-flex justify-content-between " href="/" style="font-size: 12px;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
       </div>
 
-        <div
+        <!-- <div
           class="show-map container"
           id="map"
           style="width: 100%; height: 22vh; border-radius: 8px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-
-
+        </div> -->
 
     </div>
-
-
-<%#= link_to "Show me all sunny spots", spots_path  %><br>
-<%#= link_to "Go to randomiser", randomise_spots_path  %><br>
-
-
+  </div>
+</div>
 
 
 
