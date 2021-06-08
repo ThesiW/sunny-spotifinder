@@ -77,7 +77,7 @@ require 'time'
     #converts the position in the array to a datetime
     @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index)))
     @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index)))
-    raise
+
   end
 
   def randomise
