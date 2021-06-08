@@ -12,6 +12,13 @@ class Spot < ApplicationRecord
     a = Time.now.to_i
     b = "#{Date.today} #{sun_end}".to_datetime.to_i
 
+    @times = []
+    time = a
+    if a < b
+      @times << time
+      time += 1800
+    end
+
     difference_hours = (b - a) / 3600
     difference_minutes = ((b - a) - (difference_hours * 3600) > 1800) ? ",5" : ""
     if difference_hours > 0
