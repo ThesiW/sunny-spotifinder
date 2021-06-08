@@ -69,16 +69,23 @@
           <h3 class="pt-0 mb-4 pt-1">Let's find a sunny spot!</h3>
           <a class="btn-main mb-1 d-flex justify-content-center mb-3" href="/spots">Show me all sunny spots!</a>
                 <!-- Samir check specific spot with search bar css is in -search buttom -->
+
+
          <div class="search-container">
           <div class="btn-main mb-1 d-flex justify-content-center search-btn" id="search-btn">Check specific spot</div>
             <div id="input" class="search-icon-wraper">
+
               <%= form_tag spots_path, method: :get do %>
-                  <%= text_field_tag :query,
-                    params[:query],
-                    class: "mb-1 d-flex justify-content-center search",
-                      id: "city-auto-complete"
-                  %>
+
+                  <%= select_tag :query,
+
+                    options_from_collection_for_select(Spot.all, "id", "name"),
+                     class: "mb-1 d-flex justify-content-center search select2",
+                      id: "city-auto-complete"%>
                   <i id="submit-icon" class="fas fa-search search-icon"></i>
+                  <div class="submit-search">
+                <%= submit_tag  "submit"%>
+                </div>
                 <% end %>
             </div>
           </div>
