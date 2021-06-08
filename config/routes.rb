@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :visits, only: [:create]
     collection do
       get :randomise
+      get :search
     end
   end
 

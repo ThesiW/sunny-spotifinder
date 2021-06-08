@@ -207,7 +207,6 @@ vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "
 # end
 require 'open-uri'
 require 'nokogiri'
-
 url = "https://www.google.fr/maps/search/caf%C3%A9/@59.316308,18.0746053,14z/data=!3m1!4b1"
 url_2 = "https://thatsup.se/stockholm/explore/cafe/"
 
@@ -215,11 +214,29 @@ p "I am there+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 html_file = URI.open(url_2).read
 html_doc = Nokogiri::HTML(html_file)
 p "I am here+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-
 html_doc.search('.explore-item').each do |element|
    spot_number = element.search('span')[1].text
    spot_name = element.search('span')[2].text
    spot_address = element.search('span')[3].text if element.search('span')[3].present?
+   spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
+
+html_doc.search('.explore-item').each do |element|
+   spot_number = element.search('span')[1].text
+   spot_name = element.search('span')[2].text
+   spot_address = element.search('span')[3].text
+   spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
+   spot_link = element.search(".profile-link").attr('href').value
+   p spot_link = "https://thatsup.se" + spot_link
+   if spot_link.ascii_only?
+   html_file2 = URI.open(spot_link).read
+   html_doc2 = Nokogiri::HTML(html_file2)
+   hours = html_doc2.search('.opening-hour').first.text
+    p hours
+   end
+   if spot_picture == nil
+     spot_picture = "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+   end
+   # spot_address = element.search('span')[3].text if element.search('span')[3].present?
 
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    puts "Name of the spot: #{spot_name}"
@@ -234,9 +251,4 @@ html_doc.search('.explore-item').each do |element|
    p spot.valid?
    p spot
 end
-
-
-
-
-
 
