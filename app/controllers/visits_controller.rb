@@ -1,5 +1,4 @@
 class VisitsController < ApplicationController
-
   def index
     @visits = current_user.visits
     @spots = @visits.map { |visit| visit.spot }
@@ -19,7 +18,10 @@ class VisitsController < ApplicationController
     @visit = Visit.new
     @visit.user = current_user
     @visit.spot = @spot
+    current_user.intake = 0 unless current_user.intake
     if @visit.save!
+      current_user.intake += 2500
+      current_user.save!
       redirect_to spot_path(@visit.spot)
     else
       render 'new'
