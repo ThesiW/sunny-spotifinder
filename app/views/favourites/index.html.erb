@@ -1,12 +1,13 @@
-<body class="show-body" style="background-color: #F5FCFF; color: black;">
-  <div class="nav-top-container navbar-top mt-3">
-    <%= link_to "/users", class: "avatar-bordered" do %>
-            <% if user_signed_in? %>
-            <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
-            <% end %>
-    <% end %>
-  </div>
-</body>
+<%= image_tag "logo.png", class: "logo" %>
+           <div class="container mt-2">
+          <div class="row">
+            <div class="col-sm-8 offset-sm-2">
+              <h1>My favourite spots</h1>
+              <div class="spot-favourite-cards justify-content-between grid-container ">
+                <% @favourites.each do |favourite| %>
+                <%= link_to spot_path(favourite.spot) do %>
+                  <div class="spot-favourite-card container grid-container mr-3 mt-3">
+
 
 
 <div class="container mt-2">

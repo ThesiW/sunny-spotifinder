@@ -1,14 +1,7 @@
-
+<%= image_tag "logo.png", class: "logo" %>
 <div class="container">
 <body class="index-body">
-  <div class="nav-top-container navbar-top mt-3">
-    <%= link_to "/users", class: "avatar-bordered" do %>
-    <!-- for the user sign up avatar -->
-        <% if user_signed_in? %>
-         <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
-        <% end %>
-    <% end %>
-  </div>
+
 </body>
 
 <div class="container mt-2">

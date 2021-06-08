@@ -1,17 +1,11 @@
 
+<div>
+  <h2 class="d-flex justify-content-center pl-3">Welcome, <%=current_user.username if current_user %>! </h2>
+
+  <%= image_tag "logo.png", class: "logo" %>
+</div>
+
 <body class="homepage-body">
-  <h2 class="d-flex justify-content-start pl-3">Welcome, <%#= current_user.username %>! </h2>
-  <div class="nav-top-container navbar-top mt-3">
-    <%= link_to "/users", class: "avatar-bordered" do %>
-     <!-- This is the user sign in avatar setup -->
-        <% if user_signed_in? %>
-         <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
-        <% end %>
-    <% end %>
-  </div>
-  <h2 class="d-flex justify-content-center pl-3">Welcome <%=current_user.username if current_user%> </h2
-
-
 
   <div class="container mt-3">
     <form class="d-flex justify-content-start" id="city-form">

@@ -1,13 +1,10 @@
 
 
- <body class="show-body" style="background-color: #F5FCFF; color: black;">
-  <div class="nav-top-container navbar-top mt-3">
-    <%= link_to "/users", class: "avatar-bordered" do %>
-          <% if user_signed_in? %>
-          <%= cl_image_tag current_user.user_picture, class:"avatar-img" %>
-          <% end %>
-    <% end %>
-  </div>
+<%= image_tag "logo.png", class: "logo" %>
+
+
+<body class="show-body" style="background-color: #F5FCFF; color: black;">
+
 </body>
 
 <div class="container mt-2">
