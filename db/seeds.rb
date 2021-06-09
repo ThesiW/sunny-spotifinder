@@ -5,10 +5,12 @@ Visit.destroy_all
 Favourite.destroy_all
 Spot.destroy_all
 User.destroy_all
+
 max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "sunnyboy", intake: 0)
 thesi = User.create(email: "theresa@gmail.com", password: "123456", username: "ThesiW", intake: 0)
 samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami", intake: 0)
 vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "vincent", intake: 0)
+
 # ----
 # lykke = Spot.create(
 #   name: "Lykke",
@@ -259,55 +261,59 @@ html_doc.search('.explore-item').each do |element|
     spot.save
    end
    p "over ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
+   if spot_name == "Kaferang"
+    spot.latitude = 59.312839129751545
+    spot.longitude = 18.083514259061587
+    spot.save
+   end
+   if spot_name == "Älskade Traditioner"
+    spot.latitude = 59.31103965115214
+    spot.longitude = 18.08156107300887
+    spot.save
+   end
+   if spot_name == "Fern & Fika"
+    spot.latitude = 59.31717118240935
+    spot.longitude = 18.033048797139948
+    spot.save
+   end
+   if spot_name == "Mahalo Söder"
+    spot.latitude = 59.31779066674081
+    spot.longitude = 18.054273325736578
+    spot.save
+   end
+   if spot_name == "Gildas Rum"
+    spot.latitude = 59.31278626640587
+    spot.longitude = 18.083177281254343
+    spot.save
+   end
+   if spot_name == "Pom & Flora Bondegatan"
+    spot.latitude = 59.31378970800266
+    spot.longitude = 18.08662255116376
+    spot.save
+   end
+   if spot_name == "Johan & Nyström Swedenborgsgatan"
+    spot.latitude = 59.31627077731745
+    spot.longitude = 18.064051363280093
+    spot.save
+   end
+   if spot_name == "Vurma Hornstull"
+    spot.latitude = 59.31546411839941
+    spot.longitude = 18.029537504884097
+    spot.save
+   end
+
+   if spot_name == "Greasy Spoon Tjärhovsgatan"
+    spot.latitude = 59.3159022870926
+    spot.longitude = 18.081713443779428
+    spot.save
+   end
+
+   if spot_name == "Lykke"
+    spot.latitude = 59.313318873707246
+    spot.longitude = 18.082189535092297
+    spot.save
+   end
  end
 
- #   if spot_name == "Kaferang"
- #    spot.latitude = 59.3128
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
- #   if spot_name == "Cykelcafé Le Mond"
- #    spot.latitude = 59.31449142762766
- #    spot.longitude = 18.079939340863586
- #    spot.save
- #   end
-
-# end
-
-end
 
