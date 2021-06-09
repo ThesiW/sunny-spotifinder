@@ -28,12 +28,17 @@ require 'time'
 
   def show
     @spot = Spot.find(params[:id])
+
+    if @spot.geocoded?
+
     @review = Review.new
     @markers =
       [{
-        lat: @spot.geocode[0],
-        lng: @spot.geocode[1]
+        lat: @spot.latitude,
+        lng: @spot.longitude,
+        image_url: helpers.asset_url('map-marker-alt-solid.svg')
       }]
+    end
     @bookmark = Bookmark.new
     @favourite = Favourite.new
     @visit = Visit.new
@@ -80,6 +85,8 @@ require 'time'
     #converts the position in the array to a datetime
     @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index)))
     @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index)))
+
+  end
 
   end
 
