@@ -30,6 +30,16 @@
   font-size:10px;
 }
 
+.description-show {
+  font-size: 12px;
+  width: 44%;
+  position: absolute;
+  right: 0;
+  top: 69px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
 
 .bookmark-favourite {
   display: flex;
@@ -54,8 +64,7 @@
   overflow-y:scroll;
   padding: 10px;
   height: 100px;
-  width: 50%;
-
+  width: 100%;
   &.btn {
   padding: 0;
   margin-top: -20px;
@@ -64,6 +73,7 @@
 
 }
 }
+
 
 .review-row {
   display: flex;
@@ -79,7 +89,7 @@
   margin-left: -10px;
 }
 .comment{
-      display: flex;
+  display: flex;
   flex-flow: row;
   font-size:12px;
 }
@@ -127,8 +137,18 @@
   border-radius: 8px;
 }
 
-.carousel-item img {
+.picture-card {
+  height: 20vh;
+}
+
+.picture-item {
+  width: 50%;
+  margin-left: 10px;
+}
+
+.picture-item img {
   object-fit: cover;
+  border-radius: 8px;
 }
 
 
@@ -170,15 +190,17 @@
 }
 
 .btn-small-navy {
-background-color: #243860;
- text-transform: uppercase;
+  background-color: #243860;
+  text-transform: uppercase;
   border-radius: 8px;
-  padding: 8px;
+  padding: 7px;
   margin-top: 5px;
-  width: 100%;
+  width: 43%;
   text-align: center;
-    color: white;
-
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  right: 4px;
 }
 
 .btn-main-show {
@@ -201,7 +223,7 @@ background-color: #243860;
 }
 
 .fa-calendar-alt {
-  font-size: 20px;
+  font-size: 17px;
   padding-right: 2px;
 }
 
@@ -214,6 +236,7 @@ background-color: #243860;
   border-radius: 8px;
   margin-left: 12px;
   margin-right: 12px;
+  padding: 0px;
 }
 
 .bookmark-button i {
