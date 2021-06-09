@@ -360,7 +360,7 @@ html_doc.search('.explore-item').each do |element|
     spot.save
    end
 
-   if spot_name == "Greasy Spoon Tjärhovsgatan"
+   if spot_name == "Lykke Kaffegårdar Nytorget"
     spot.latitude = 59.313318873707246
     spot.longitude = 18.082189535092297
     spot.save
