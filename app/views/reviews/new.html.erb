@@ -43,15 +43,6 @@
       </div>
     </div>
 
-  <h1>Add a new review</h1>
-  <div class="container">
-    <%= simple_form_for [@spot, @review] do |f| %>
-      <%= f.input :comment, label: false, :as => :text, :input_html => { :rows => 4 , :style => 'width: 100%'} %>
-      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
-      <%= f.submit "Submit", class:'btn btn-primary w-100' %>
-    <% end %>
-  </div>
-
 
 
 

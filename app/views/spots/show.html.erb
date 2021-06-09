@@ -8,7 +8,8 @@
 
 <div class="container mt-2">
   <div class="row">
-    <div class="col-sm-8 offset-sm-2">
+
+    <div class="col-sm-8 offset-sm-2 scrollable">
       <div class="show-name">
 
         <h1 class="d-flex justify-content-center" style="margin-top: 40px;"> <%= @spot.name %>
@@ -37,6 +38,7 @@
             <% end %>
           </div>
 
+
           <div class="bookmark-favourite ratings justify-content-end pt-2">
             <div class="bookmark-button mr-2 mt-2">
               <% if Bookmark.find_by(spot: @spot, user: current_user)%>
@@ -62,11 +64,11 @@
             </div>
           </div>
 
+      </div>
+        
           <div class="description-show">
             <p>This is a fantastic café with great outdoor seating and lots of sunshine</p>
           </div>
-
-
 
           <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px; box-shadow: 0px 4px 13px -1px #d3d4da;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
         </div>
@@ -89,6 +91,44 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
+      
+
+
+
+          <h3 class="d-flex justify-content-center">Add a new review</h3>
+        <div class="show-details-card">
+          <%= simple_form_for [@spot, @review] do |f| %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience"  %>
+            <%= f.input :comment, label: false, :as => :text, :input_html => { :rows => 2 , :style => 'width: 100%'} %>
+            <%= f.submit "Submit", class:'btn-small w-100' %>
+          <% end %>
+        </div>
+
+        <div class="review-div">
+           <strong class="review-titlte">Reviews</strong>
+          <div class="d-flex">
+          <div class="stars ratings justify-content-start ml-3 ">
+            <div class="review-container">
+              <% @spot.reviews.reverse.each do |review| %>
+                <div class="review-row">
+                  <div class="author">
+                    <div class="avatar-bordered small" >
+                      <% if user_signed_in? %>
+                          <%= cl_image_tag current_user.user_picture, class: "avatar-img" %>
+                      <% end %>
+                    </div>
+                    <%= current_user.username %>
+                  </div>
+                    <div class="comment">
+                      <%= review.comment %>
+                    </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          </div>
+      </div>
+
     </div>
   </div>
 </div>

@@ -28,6 +28,7 @@ require 'time'
 
   def show
     @spot = Spot.find(params[:id])
+    @review = Review.new
     @markers =
       [{
         lat: @spot.geocode[0],
