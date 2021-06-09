@@ -33,13 +33,14 @@
                   <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3">
                     <div class="spot-index-details">
                       <!-- <p class="d-flex justify-content-center" style="font-size: 20px"><b><#%= spot.time_difference[:hour] %><#%= spot.time_difference[:minutes] %>h of sun</b></p> -->
-                         <p class="d-flex justify-content-center" style="font-weight: 100"> <%= spot.hours %> </p>
+                         <p class="d-flex justify-content-center" style="font-weight: 100"> <%= spot.hours %></p>
 
                      <div class="description-index">
-                      <p>This is a fantastic café with great outdoor seating and lots of sunshine</p>
+                      <p> <%= spot.description + "..." if spot.description %></p>
+
                     </div>
 
-                      <div class="stars d-flex justify-content-center">
+                      <div class="stars-index d-flex justify-content-center">
                         <% spot.rating.to_i.times do %>
                           <i class="fas fa-star "></i>
                         <% end %>

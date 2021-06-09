@@ -67,14 +67,15 @@
       </div>
 
           <div class="description-show">
-            <p>This is a fantastic café with great outdoor seating and lots of sunshine</p>
+            <p> <%= @spot.description %> </p>
           </div>
+
           <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px; box-shadow: 0px 4px 13px -1px #d3d4da;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
         </div>
 
           <% @spot.photos.each do |photo| %>
             <div class="picture-item<%= " active" if photo == @spot.photos.first %>">
-              <%= cl_image_tag photo.key, class:"d-block w-100", height: "144px" %>
+              <%= cl_image_tag photo.key, class:"d-block w-100", height: "172px" %>
         <% end %>
 
     </div>
@@ -87,40 +88,42 @@
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
 
+        <div class="review-card">
+          <h3 class="d-flex justify-content-center pt-3" style="font-size: 26px;">Add a new review</h3>
+              <%= simple_form_for [@spot, @review] do |f| %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience:"  %>
+              <%= f.input :comment, label: false, :as => :text, :input_html => { :rows => 2 , :style => 'width: 100%'} %>
+              <%= f.submit "Submit", class:'btn-navy-form' %>
+            <% end %>
 
-          <h3 class="d-flex justify-content-center">Add a new review</h3>
-        <div class="show-details-card">
-          <%= simple_form_for [@spot, @review] do |f| %>
-            <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience"  %>
-            <%= f.input :comment, label: false, :as => :text, :input_html => { :rows => 2 , :style => 'width: 100%'} %>
-            <%= f.submit "Submit", class:'btn-small w-100' %>
-          <% end %>
         </div>
 
-        <div class="review-div">
-           <strong class="review-titlte">Reviews</strong>
+        <div class="show-review-card">
+           <strong class="review-titlte pt-3" style="font-size: 21px;">Reviews</strong>
           <div class="d-flex">
-          <div class="stars ratings justify-content-start ml-3 ">
-            <div class="review-container">
-              <% @spot.reviews.reverse.each do |review| %>
-                <div class="review-row">
-                  <div class="author">
-                    <div class="avatar-bordered small" >
-                      <% if user_signed_in? %>
-                          <%= cl_image_tag current_user.user_picture, class: "avatar-img" %>
-                      <% end %>
+            <div class="stars ratings justify-content-start ml-3 ">
+              <div class="review-container">
+                <% @spot.reviews.reverse.each do |review| %>
+                  <div class="review-row">
+                    <div class="author">
+                      <div class="avatar-bordered-reviews small" >
+                        <% if user_signed_in? %>
+                            <%= cl_image_tag current_user.user_picture, class: "avatar-img" %>
+                        <% end %>
+                      </div>
+                      <div class="username-review" style="padding-top: 10px; padding-left: 10px">
+                        <%= current_user.username %>
+                      </div>
                     </div>
-                    <%= current_user.username %>
+                      <div class="comment-review">
+                        "<%= review.comment %>"
+                      </div>
                   </div>
-                    <div class="comment">
-                      <%= review.comment %>
-                    </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-          </div>
-      </div>
+        </div>
 
     </div>
   </div>
