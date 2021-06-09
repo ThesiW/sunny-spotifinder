@@ -1,4 +1,4 @@
-<%= image_tag "logo.png", class: "logo" %>
+<%= image_tag "LogoMakr-7pIBgM.png", class: "logo" %>
 <body class="show-body" style="background-color: #F5FCFF; color: black;">
 
 </body>
@@ -7,19 +7,19 @@
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
       <h1>My Bookmarks</h1>
-      <div class="spot-bookmark-cards justify-content-between grid-container ">
+      <div class="spot-bookmark-cards justify-content-between grid-container">
         <% @bookmarks.each do |bookmark| %>
         <%= link_to bookmark_path(bookmark) do %>
           <div class="spot-bookmark-card container grid-container mr-3 mt-3">
             <h3 class="mb-0 pt-3"><%= bookmark.spot.name %><i class="fas fa-bookmark bookmark-icon"></i></h3>
             <div class="d-flex justify-content-evenly justify-content-between mt-3">
-              <div class="spot-index-img">
+              <div class="spot-bookmark-img">
                 <%= cl_image_tag bookmark.spot.photos.first.key, crop: :fit if bookmark.spot.photos.attached? %>
               </div>
               <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
                 <div class="spot-bookmark-details">
-                <p class="d-flex justify-content-center"><%= bookmark.spot.time_difference[:hour] %><%= bookmark.spot.time_difference[:minutes] %>h of sun</p>
-                <div class="stars d-flex justify-content-center">
+<!--                 <p class="d-flex justify-content-center"><%#= bookmark.spot.time_difference[:hour] %><%#= bookmark.spot.time_difference[:minutes] %>h of sun</p>
+ -->                <div class="stars d-flex justify-content-center">
                   <% bookmark.spot.rating.to_i.times do %>
                     <i class="fas fa-star "></i>
                   <% end %>

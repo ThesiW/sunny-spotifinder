@@ -1,8 +1,7 @@
 
 <div>
-  <h2 class="d-flex justify-content-center pl-3">Welcome, <%=current_user.username if current_user %>! </h2>
-
-  <%= image_tag "logo.png", class: "logo" %>
+  <h2 class="d-flex justify-content-start pl-3 pt-3 mb-0">Welcome, <%=current_user.username if current_user %>! </h2>
+  <%= image_tag "LogoMakr-7pIBgM.png", class: "logo" %>
 </div>
 
 <body class="homepage-body">
@@ -13,9 +12,8 @@
        <input class="w-200" id="city-input" placeholder="Stockholm"></input>
       <input type="submit" value="Search" class="btn btn-navy-city">
     </form>
-    <h3 class="mt-2" style="color: black; font-size: 18px;">Weather in <span id="city" ></span>:</h3>
+    <h3 class="mt-2 mb-0" style="color: black; font-size: 18px;">Weather in <span id="city" ></span>:</h3>
   </div>
-
 
 
 <!-- Thesi's code: -->
@@ -44,19 +42,19 @@
           <div class="weather-cards d-flex justify-content-between">
 
             <div class="weather-card" >
-              <h3><%= (Date.today + 1).strftime('%a') %></h3>
+              <h3 class="mb-0"><%= (Date.today + 1).strftime('%a') %></h3>
               <img src="" alt="Weather Icon" id="icon1" heigth="80" width="80">
               <p class="m-0" id="days1" ></p>
             </div>
 
 
             <div class="weather-card">
-              <h3><%= (Date.today + 2).strftime('%a') %></h3>
+              <h3 class="mb-0"><%= (Date.today + 2).strftime('%a') %></h3>
               <img src="" alt="Weather Icon" id="icon2" heigth="80" width="80">
               <p class="m-0" id="days2"></p>
             </div>
             <div class="weather-card">
-               <h3><%= (Date.today + 3).strftime('%a') %></h3>
+               <h3 class="mb-0"><%= (Date.today + 3).strftime('%a') %></h3>
               <img src="" alt="Weather Icon" id="icon3" heigth="80" width="80">
               <p class="m-0" id="days3"></p>
             </div>
@@ -69,16 +67,20 @@
           <h3 class="pt-0 mb-4 pt-1">Let's find a sunny spot!</h3>
           <a class="btn-main mb-1 d-flex justify-content-center mb-3" href="/spots">Show me all sunny spots!</a>
                 <!-- Samir check specific spot with search bar css is in -search buttom -->
+
+
          <div class="search-container">
           <div class="btn-main mb-1 d-flex justify-content-center search-btn" id="search-btn">Check specific spot</div>
             <div id="input" class="search-icon-wraper">
+
               <%= form_tag spots_path, method: :get do %>
-                  <%= text_field_tag :query,
-                    params[:query],
-                    class: "mb-1 d-flex justify-content-center search",
-                      id: "city-auto-complete"
-                  %>
-                  <i id="submit-icon" class="fas fa-search search-icon"></i>
+                  <%= select_tag :query,
+                  options_from_collection_for_select(Spot.all, "id", "name"),
+                  class: "mb-1 d-flex justify-content-center search select2",
+                    id: "city-auto-complete"%>
+                  <div class="submit-search">
+                <%= submit_tag "submit"%>
+                </div>
                 <% end %>
             </div>
           </div>
