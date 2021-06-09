@@ -52,7 +52,7 @@ document.addEventListener('turbolinks:load', () => {
   fetchWeather('stockholm');
   initSelect2();
   expotHideButton();
-  initAutocomplete();
+ // initAutocomplete();
   dropup();
   initStarRating();
 });
