@@ -312,6 +312,7 @@ html_doc.search('.explore-item').each do |element|
    end
    p "over ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
  end
+
  #   if spot_name == "Kaferang"
  #    spot.latitude = 59.3128
  #    spot.longitude = 18.079939340863586
