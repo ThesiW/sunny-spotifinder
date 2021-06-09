@@ -8,6 +8,12 @@
   top: 0px
 }
 
+.scrollable{
+  height:100vh;
+  overflow:scroll;
+  margin-bottom:100px;
+}
+
 .fa-plus-square {
   color: #243860;
   font-size: 30px;
@@ -17,17 +23,27 @@
 .show-body {
   background-color: #F5FCFF;
 }
+
 .favourite-top {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
 }
+
 .ratings {
   display: flex;
   flex-flow: row;
+  width:100%;
 }
 .user-rating{
   font-size:10px;
+}
+
+.review-div{
+  display:flex;
+  flex-flow:column;
+  height:auto;
+  width:100%;
 }
 
 .description-show {
@@ -38,7 +54,6 @@
   top: 69px;
   margin-top: 10px;
   margin-bottom: 10px;
-
 }
 
 .bookmark-favourite {
@@ -58,6 +73,7 @@
   align-items: center;
   margin-left: 10px;
 }
+
 .review-container {
   display:flex;
   flex-flow: column;
@@ -65,15 +81,14 @@
   padding: 10px;
   height: 100px;
   width: 100%;
+
   &.btn {
   padding: 0;
   margin-top: -20px;
   overflow-y: none;
   height: 100%;
-
 }
 }
-
 
 .review-row {
   display: flex;
@@ -88,14 +103,15 @@
   font-weight: bold;
   margin-left: -10px;
 }
-.comment{
+  
+&.comment {
   display: flex;
   flex-flow: row;
-  font-size:12px;
+  font-size: 12px;
 }
 }
 
-.review-titlte{
+.review-titlte {
   margin-left:10px;
 }
 
@@ -151,7 +167,6 @@
   border-radius: 8px;
 }
 
-
 .show-details-card {
   background-color: white;
   margin-top: 10px;
@@ -160,6 +175,7 @@
   height: 25vh;
   border-radius: 8px;
   position: relative;
+  margin-bottom: 50px;
 }
 
 .btn-navy-show {
