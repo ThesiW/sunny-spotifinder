@@ -17,7 +17,9 @@ require 'time'
     end
 
     if params[:query].present?
-      @spot = Spot.where(title: params[:query])
+      search
+      @spot = Spot.where(select2: params[:query])
+      # redirect_to spot_visits_path(@spot)
     else
       @spot = Spot.all
     end
@@ -77,13 +79,25 @@ require 'time'
     #converts the position in the array to a datetime
     @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index)))
     @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index)))
-    raise
+
   end
 
-  def randomise
-    @spot ||= Spot.all.shuffle
-    @spot.pop
-  end
+  # def randomise
+  #   @spot ||= Spot.all.shuffle
+  #   @spot.pop
+  # end
+
+    def randomise
+     @spot = Spot.order("RANDOM()").first
+     redirect_to spot_path(@spot)
+   end
+
+  def search
+    @spot = Spot.find(params[:query])
+    redirect_to spot_path(@spot)
+   end
+
+
 
   private
 

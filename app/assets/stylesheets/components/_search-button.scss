@@ -34,6 +34,14 @@
   width: 100%;
   top: 0;
 
+  #cafe-input{
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    top: 0;
+  }
+
 .search-icon {
     position: absolute;
     z-index: 3;
