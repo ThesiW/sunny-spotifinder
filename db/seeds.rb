@@ -257,7 +257,7 @@ require 'open-uri'
 require 'nokogiri'
 
 url = "https://www.google.fr/maps/search/caf%C3%A9/@59.316308,18.0746053,14z/data=!3m1!4b1"
-url_2 = "https://thatsup.se/stockholm/explore/cafe/"
+url_2 = "https://thatsup.se/stockholm/explore/s%C3%B6dermalm/cafe/uteservering/"
 
 
 p "I am there+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
@@ -270,35 +270,95 @@ p "I am here++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 html_doc.search('.explore-item').each do |element|
+  p "starting ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+
    spot_number = element.search('span')[1].text
    spot_name = element.search('span')[2].text
    spot_address = element.search('span')[3].text
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    spot_link = element.search(".profile-link").attr('href').value
+   p spot_link
    p spot_link = "https://thatsup.se" + spot_link
    if spot_link.ascii_only?
-   html_file2 = URI.open(spot_link).read
-   html_doc2 = Nokogiri::HTML(html_file2)
-   hours = html_doc2.search('.opening-hour').first.text
+     html_file2 = URI.open(spot_link).read
+     html_doc2 = Nokogiri::HTML(html_file2)
+     hours = html_doc2.search('.opening-hour').first.text
+     spot_description = html_doc2.search('.body-text').text.first(200)
+
+     p spot_description
+
     p hours
    end
    if spot_picture == nil
      spot_picture = "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
    end
 
+
    puts "Name of the spot: #{spot_name}"
    puts "Address of the spot: #{spot_address}"
    spot = Spot.new(
    name: spot_name,
    address: spot_address,
-   rating: rand(1..5)
-   )
+   rating: rand(1..5),
+   description: spot_description)
    spot.photos.attach(io: URI.open(spot_picture), filename: 'picture', content_type: 'image/jpg') if spot_picture
    spot.save
    p spot.valid?
    p spot
+   if spot_name == "Cykelcafé Le Mond"
+    spot.latitude = 59.31449142762766
+    spot.longitude = 18.079939340863586
+    spot.save
+   end
+   p "over ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+ end
+ #   if spot_name == "Kaferang"
+ #    spot.latitude = 59.3128
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
+ #   if spot_name == "Cykelcafé Le Mond"
+ #    spot.latitude = 59.31449142762766
+ #    spot.longitude = 18.079939340863586
+ #    spot.save
+ #   end
 
-end
+ # end
 
 
 
