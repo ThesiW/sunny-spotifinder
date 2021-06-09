@@ -23,11 +23,13 @@
 .show-body {
   background-color: #F5FCFF;
 }
+
 .favourite-top {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
 }
+
 .ratings {
   display: flex;
   flex-flow: row;
@@ -44,6 +46,15 @@
   width:100%;
 }
 
+.description-show {
+  font-size: 12px;
+  width: 44%;
+  position: absolute;
+  right: 0;
+  top: 69px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 .bookmark-favourite {
   display: flex;
@@ -62,6 +73,7 @@
   align-items: center;
   margin-left: 10px;
 }
+
 .review-container {
   display:flex;
   flex-flow: column;
@@ -75,7 +87,6 @@
   margin-top: -20px;
   overflow-y: none;
   height: 100%;
-
 }
 }
 
@@ -92,14 +103,15 @@
   font-weight: bold;
   margin-left: -10px;
 }
-.comment{
-      display: flex;
+  
+&.comment {
+  display: flex;
   flex-flow: row;
-  font-size:12px;
+  font-size: 12px;
 }
 }
 
-.review-titlte{
+.review-titlte {
   margin-left:10px;
 }
 
@@ -141,10 +153,19 @@
   border-radius: 8px;
 }
 
-.carousel-item img {
-  object-fit: cover;
+.picture-card {
+  height: 20vh;
 }
 
+.picture-item {
+  width: 50%;
+  margin-left: 10px;
+}
+
+.picture-item img {
+  object-fit: cover;
+  border-radius: 8px;
+}
 
 .show-details-card {
   background-color: white;
@@ -185,15 +206,17 @@
 }
 
 .btn-small-navy {
-background-color: #243860;
- text-transform: uppercase;
+  background-color: #243860;
+  text-transform: uppercase;
   border-radius: 8px;
-  padding: 8px;
+  padding: 7px;
   margin-top: 5px;
-  width: 100%;
+  width: 43%;
   text-align: center;
-    color: white;
-
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  right: 4px;
 }
 
 .btn-main-show {
@@ -216,7 +239,7 @@ background-color: #243860;
 }
 
 .fa-calendar-alt {
-  font-size: 20px;
+  font-size: 17px;
   padding-right: 2px;
 }
 
@@ -229,6 +252,7 @@ background-color: #243860;
   border-radius: 8px;
   margin-left: 12px;
   margin-right: 12px;
+  padding: 0px;
 }
 
 .bookmark-button i {
