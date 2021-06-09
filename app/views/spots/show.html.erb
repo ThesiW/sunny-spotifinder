@@ -65,23 +65,19 @@
           </div>
 
       </div>
-        
+
           <div class="description-show">
             <p>This is a fantastic café with great outdoor seating and lots of sunshine</p>
           </div>
-
           <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px; box-shadow: 0px 4px 13px -1px #d3d4da;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
         </div>
 
-        <div class="picture-card">
           <% @spot.photos.each do |photo| %>
             <div class="picture-item<%= " active" if photo == @spot.photos.first %>">
               <%= cl_image_tag photo.key, class:"d-block w-100", height: "144px" %>
         <% end %>
-        </div>
 
-
-        </div>
+    </div>
 
 
         <div
@@ -91,8 +87,6 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-      
-
 
 
           <h3 class="d-flex justify-content-center">Add a new review</h3>

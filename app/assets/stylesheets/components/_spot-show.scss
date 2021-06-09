@@ -35,11 +35,11 @@
   flex-flow: row;
   width:100%;
 }
-.user-rating{
+.user-rating {
   font-size:10px;
 }
 
-.review-div{
+.review-div {
   display:flex;
   flex-flow:column;
   height:auto;
@@ -103,7 +103,7 @@
   font-weight: bold;
   margin-left: -10px;
 }
-  
+
 &.comment {
   display: flex;
   flex-flow: row;
@@ -158,8 +158,10 @@
 }
 
 .picture-item {
-  width: 50%;
-  margin-left: 10px;
+  width: 45%;
+  margin-left: 8px;
+  position: absolute;
+  top: 148px;
 }
 
 .picture-item img {
