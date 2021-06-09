@@ -39,12 +39,18 @@
   font-size:10px;
 }
 
+.review-card {
+
+}
+
 .review-div {
   display:flex;
   flex-flow:column;
   height:auto;
   width:100%;
 }
+
+
 
 .description-show {
   font-size: 12px;
@@ -77,9 +83,9 @@
 .review-container {
   display:flex;
   flex-flow: column;
+  padding: 0px 5px 10px 10px;
   overflow-y:scroll;
-  padding: 10px;
-  height: 100px;
+  height: 100%;
   width: 100%;
 
   &.btn {
@@ -90,29 +96,34 @@
 }
 }
 
+.username-review {
+
+}
+
 .review-row {
   display: flex;
   flex-flow: column;
   width: 100%;
   margin: 5px 0;
-
-  .author {
-   display: flex;
-  flex-flow: row;
-  font-size: 13px;
-  font-weight: bold;
-  margin-left: -10px;
 }
+  .author {
+  display: flex;
+  flex-flow: row;
+  font-size: 18px;
+  font-weight: 200;
+  margin-left: -10px;
 
-&.comment {
+  &.comment {
   display: flex;
   flex-flow: row;
   font-size: 12px;
+
 }
 }
 
 .review-titlte {
-  margin-left:10px;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .show-name h1 {
@@ -157,11 +168,14 @@
   height: 20vh;
 }
 
-.picture-item {
-  width: 45%;
-  margin-left: 8px;
+.description-show {
+  font-size: 12px;
+  width: 44%;
   position: absolute;
-  top: 148px;
+  right: 0;
+  top: 51px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .picture-item img {
@@ -169,7 +183,47 @@
   border-radius: 8px;
 }
 
-.show-details-card {
+
+.picture-item {
+  width: 45%;
+  margin-left: 8px;
+  position: absolute;
+  top: 162px;
+  left: 15px;
+}
+
+.select {
+  margin-bottom: 0px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  margin: 10px 10px 5px 10px;
+}
+
+.btn-navy-form {
+  color: white;
+  background-color: #243860;
+  border: 2px solid #243860;
+  border-radius: 8px;
+  padding: 3px;
+  text-transform: uppercase;
+  box-shadow: 2px 3px 4px grey;
+  width: 95%;
+  margin-left: 9px;
+  margin-top: 5px;
+}
+
+.br-wrapper {
+  margin-left: 20px;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+
+}
+
+.review-card {
   background-color: white;
   margin-top: 10px;
   color: black;
@@ -177,7 +231,47 @@
   height: 25vh;
   border-radius: 8px;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
+}
+
+.show-review-card {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+  box-shadow: 0px 4px 13px -1px #D3D4DA;
+  height: 40vh;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 15px;
+  padding-top: 10px;
+}
+
+.comment-review {
+  padding-top: 5px;
+}
+
+.avatar-bordered-reviews {
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  margin-top: 5px;
+  display:flex;
+  justify-content:center;
+}
+
+
+.show-details-card {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+  box-shadow: 0px 4px 13px -1px #D3D4DA;
+  height: 30vh;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 15px;
 }
 
 .btn-navy-show {
@@ -193,6 +287,10 @@
   bottom: 0;
   right: 16px;
   text-align: center;
+}
+
+.form-control {
+  border-radius: 8px;
 }
 
 .btn-small {

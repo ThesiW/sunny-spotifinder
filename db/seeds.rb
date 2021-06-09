@@ -6,7 +6,7 @@ Favourite.destroy_all
 Spot.destroy_all
 User.destroy_all
 
-max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "sunnyboy", intake: 0)
+max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "Max", intake: 0)
 thesi = User.create(email: "theresa@gmail.com", password: "123456", username: "ThesiW", intake: 0)
 samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami", intake: 0)
 vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "vincent", intake: 0)
@@ -34,7 +34,7 @@ html_doc.search('.explore-item').each do |element|
      html_file2 = URI.open(spot_link).read
      html_doc2 = Nokogiri::HTML(html_file2)
      hours = html_doc2.search('.opening-hour').first.text if html_doc2.search('.opening-hour').first
-     spot_description = html_doc2.search('.body-text').text.first(200)
+     spot_description = html_doc2.search('.body-text > p:nth-child(2)').text.first(65)
 
      p spot_description
 
