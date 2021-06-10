@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_075554) do
     t.float "latitude"
     t.float "longitude"
     t.string "review"
-    t.string "hours", default: "9:00 - 16:30"
+    t.string "hours", default: "9:00 - 16:30h"
   end
 
   create_table "users", force: :cascade do |t|
