@@ -88,7 +88,7 @@ require 'time'
 
   end
 
-  end
+
 
   # def randomise
   #   @spot ||= Spot.all.shuffle
@@ -114,4 +114,3 @@ require 'time'
   endmap { |e|  }
   end
 end
-
