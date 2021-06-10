@@ -130,6 +130,12 @@ html_doc.search('.explore-item').each do |element|
     spot.longitude = 18.082189535092297
     spot.save
    end
+
+   if spot_name == "Bazzar"
+    spot.latitude = 59.31368322421927
+    spot.longitude = 18.09082762414505
+    spot.save
+   end
  end
 
 

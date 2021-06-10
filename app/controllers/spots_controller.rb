@@ -53,34 +53,41 @@ require 'time'
 # input/output-file python
     filepath = 'lib/assets/python/user_data.csv'
 
-    a = Time.now.to_i
-    # b = "#{Date.tomorrow} 21:59".to_datetime.to_i
-    b = Time.now.to_i
-    @times = []
-    time = a
+    # a = Time.now.to_i
+    # b = "#{Date.today} 21:59".to_datetime.to_i
+    # # b = Time.now.to_i
+    # @times = []
+    # time = a
 
-    while time <= b do
-      @times << (time - a) / 60
-      time += 1800
-    end
+    # while time <= b do
+    #   @times << (time - a) / 60
+    #   time += 1800
+    # end
+    # @sunny_times = []
+    # # CSV.open('lib/assets/python/user_data.csv', 'w') do |csv|
+    # # headers = ['user_lat', 'user_long', 'when_days', 'when_hours', 'when_minutes', 'sun_shine']
+    # # csv << headers
+    #   @times.each do |row|
+    #     CSV.open('lib/assets/python/user_data.csv', 'w') do |csv|
+    #     csv << [@spot.latitude, @spot.longitude, "0", "0", row, "unknown"]
+    #     # csv << [@spot.latitude, @spot.longitude, "0", "0", row, "unknown"]
+    #     end
+    #     `python lib/assets/python/sun_visibility.py`
+    #     CSV.foreach(filepath) do |row|
+    #       @sunny_times << row[5]
+    #     end
+    #   end
+    # p @sunny_times
+    # end
 
-    CSV.open('lib/assets/python/user_data.csv', 'w') do |csv|
-    # headers = ['user_lat', 'user_long', 'when_days', 'when_hours', 'when_minutes', 'sun_shine']
-    # csv << headers
-      @times.each do |row|
-        csv << [@spot.latitude, @spot.longitude, "0", "0", row, "unknown"]
-      end
-    end
-
-    `python lib/assets/python/sun_visibility.py`
+    # `python lib/assets/python/sun_visibility.py`
 
 # output from python
-    @sunny_times = []
-    CSV.foreach(filepath) do |row|
-      @sunny_times << row[5]
-    end
+    # @sunny_times = []
+    # CSV.foreach(filepath) do |row|
+    #   @sunny_times << row[5]
+    # end
 
-#sunny_from will say from now if it is sunny now
     @sunny_from_index = @sunny_times.index{ |s| s == 'True' }
     @sunny_until_index = @sunny_times.rindex { |s| s == 'True' }
 #converts the position in the array to a datetime
@@ -88,6 +95,8 @@ require 'time'
     @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index))) if @sunny_until_index != nil
     @spot.sun_start = @sunny_from_datetime.strftime("%H:%M") if @sunny_from_index != nil
     @spot.sun_end = @sunny_until_datetime.strftime("%H:%M") if @sunny_until_index != nil
+    @spot.save
+    raise
   end
 
 
