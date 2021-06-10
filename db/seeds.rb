@@ -57,9 +57,10 @@ html_doc.search('.explore-item').each do |element|
    name: spot_name,
    address: spot_address,
    rating: rand(1..5),
-   hours: hours,
    description: spot_description
    )
+
+   spot.hours = hours unless hours.nil?
 
    spot.photos.attach(io: URI.open(spot_picture), filename: 'picture', content_type: 'image/jpg') if spot_picture
    spot.save if element.search(".float-right").search("img").present?
