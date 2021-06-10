@@ -29,13 +29,16 @@
 
       <div class="show-details-card">
         <div class="favourite-top">
-          <div class="each-rating">
-            <% @spot.rating.to_i.times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% (5 - @spot.rating.to_i).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
+          <div class="stars-hours">
+            <div class="each-rating">
+              <% @spot.rating.to_i.times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (5 - @spot.rating.to_i).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+              </div>
+            <p class="opening-hours" style="font-weight: 100"><%= @spot.hours %></p>
           </div>
 
 

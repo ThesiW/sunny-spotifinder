@@ -7,30 +7,48 @@
   <div class="row">
     <div class="col-sm-8 offset-sm-2">
       <h1>My Bookmarks</h1>
-      <div class="spot-bookmark-cards justify-content-between grid-container">
-        <% @bookmarks.each do |bookmark| %>
-        <%= link_to bookmark_path(bookmark) do %>
-          <div class="spot-bookmark-card container grid-container mr-3 mt-3">
-            <h3 class="mb-0 pt-3"><%= bookmark.spot.name %><i class="fas fa-bookmark bookmark-icon"></i></h3>
-            <div class="d-flex justify-content-evenly justify-content-between mt-3">
-              <div class="spot-bookmark-img">
-                <%= cl_image_tag bookmark.spot.photos.first.key, crop: :fit if bookmark.spot.photos.attached? %>
-              </div>
-              <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-4">
-                <div class="spot-bookmark-details">
-<!--                 <p class="d-flex justify-content-center"><%#= bookmark.spot.time_difference[:hour] %><%#= bookmark.spot.time_difference[:minutes] %>h of sun</p>
- -->                <div class="stars d-flex justify-content-center">
-                  <% bookmark.spot.rating.to_i.times do %>
-                    <i class="fas fa-star "></i>
-                  <% end %>
+
+
+
+          <div class="spot-index-cards justify-content-between grid-container ">
+            <% @spots.each do |spot| %>
+              <%= link_to spot_path(spot) do %>
+              <div class="spot-index-card container grid-container mr-3 mt-3">
+                <h3 class="bookmark-name mb-0 pt-3"><%= spot.name %><i class="fas fa-bookmark bookmark-icon"></i></h3>
+                <div class="d-flex justify-content-evenly justify-content-between mt-2">
+                  <div class="spot-index-img h-100">
+                    <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
+                  </div>
+                  <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3 mt-2">
+                    <div class="spot-index-details">
+
+                      <div class="sun-hours d-flex justify-content-center">
+                        <span class="sun-index-icon">&#9788;</span>
+                        <p style="font-weight: 100;"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+                      </div>
+
+                       <div class="description-index mt-3">
+                        <p> <%= spot.description.first(71) + "..." if spot.description %></p>
+                        </div>
+
+                          <div class="stars-index d-flex justify-content-center">
+                            <% spot.rating.to_i.times do %>
+                              <i class="fas fa-star "></i>
+                            <% end %>
+                            <%(5 - spot.rating.to_i).times do %>
+                             <i class="far fa-star"></i>
+                            <% end %>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                </div>
-              </div>
-            </div>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
-        <% end %>
-      </div>
+
+
+
        <div class="bookmark-map">
         <div
           id="map"

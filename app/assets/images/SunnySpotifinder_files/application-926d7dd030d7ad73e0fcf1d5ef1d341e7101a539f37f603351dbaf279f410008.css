@@ -20407,7 +20407,7 @@ h1 {
 
 /* line 1, app/assets/stylesheets/components/_map.scss */
 .mapboxgl-popup {
-  max-width: 100px;
+  max-width: 200px;
 }
 
 /* line 5, app/assets/stylesheets/components/_map.scss */
