@@ -90,13 +90,11 @@
 
 .description-show {
   font-size: 12px;
-  width: 43%;
-  position: absolute;
-  right: 7px;
-  margin-top: 10px;
   overflow: auto;
   margin-right: 5px;
+  margin-bottom: 10px;
 }
+
 
 .bookmark-favourite {
   display: flex;
@@ -211,28 +209,21 @@
   height: 20vh;
 }
 
-.description-show {
-  font-size: 12px;
-  width: 44%;
-  position: absolute;
-  right: 0;
-  top: 51px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 .picture-item img {
   object-fit: cover;
   border-radius: 8px;
+  width: 100%;
 }
 
 
 .picture-item {
-  width: 45%;
   margin-left: 8px;
-  position: absolute;
-  bottom: 26px;
-  left: 15px;
+  width: 50%;
+}
+
+.description-show-container {
+  width: 50%;
+  padding-left: 5px;
 }
 
 .select {
@@ -312,7 +303,6 @@
   margin-top: 10px;
   color: black;
   box-shadow: 0px 4px 13px -1px #D3D4DA;
-  height: 30vh;
   border-radius: 8px;
   position: relative;
   margin-bottom: 15px;

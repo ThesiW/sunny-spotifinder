@@ -40,9 +40,6 @@
               </div>
             <p class="opening-hours" style="font-weight: 100"><%= @spot.hours %></p>
           </div>
-
-
-
           <div class="bookmark-favourite ratings justify-content-end pt-2">
             <div class="bookmark-button mr-2 mt-2">
               <% if Bookmark.find_by(spot: @spot, user: current_user)%>
@@ -69,25 +66,25 @@
           </div>
 
           </div>
-
-          <div class="description-show" style="height: 16vh;">
-            <p> <%= @spot.description %> </p>
-          </div>
-
-            <div class="sun-hours-show d-flex justify-content-center">
-              <span class="sun-show-icon">&#9788;</span>
-              <p style="font-weight: 100; padding-left: 10px; padding-top: 2px;"><%= @spot.time_difference[:hour] %><%= @spot.time_difference[:minutes] %>h</p>
+          <div class="d-flex pb-2">
+            <div class="picture-item">
+              <%= cl_image_tag @spot.photos.first.key, height: "172px" %>
             </div>
-
-          <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px;"><i class="far fa-calendar-alt"></i></a>
+            <div class="description-show-container">
+              <div class="description-show" style="height: 16vh;">
+                <p> <%= @spot.description %> </p>
+              </div>
+              <div>
+                <div class="sun-hours-show d-flex justify-content-center">
+                  <span class="sun-show-icon">&#9788;</span>
+                  <p style="font-weight: 100; padding-left: 10px; padding-top: 2px;"><%= @spot.time_difference[:hour] %><%= @spot.time_difference[:minutes] %>h</p>
+                </div>
+                <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px;"><i class="far fa-calendar-alt"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
 
-          <% @spot.photos.each do |photo| %>
-            <div class="picture-item<%= " active" if photo == @spot.photos.first %>">
-              <%= cl_image_tag photo.key, class:"d-block w-100", height: "172px" %>
-        <% end %>
-
-    </div>
 
       </div>
        <div class="show-map container"
