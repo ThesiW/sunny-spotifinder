@@ -53,11 +53,16 @@ html_doc.search('.explore-item').each do |element|
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    puts "Name of the spot: #{spot_name}"
    puts "Address of the spot: #{spot_address}"
+   sun_hour_start = "#{rand(7..11)}:#{rand(10..59)}"
+   sun_end = "#{rand(17..21)}:#{rand(10..59)}"
    spot = Spot.new(
    name: spot_name,
    address: spot_address,
    rating: rand(1..5),
-   description: spot_description
+   hours: hours,
+   description: spot_description,
+   sun_start: sun_hour_start,
+   sun_end: sun_end
    )
 
    spot.hours = hours unless hours.nil?
