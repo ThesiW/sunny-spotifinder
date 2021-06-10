@@ -42,6 +42,7 @@
           </div>
 
 
+
           <div class="bookmark-favourite ratings justify-content-end pt-2">
             <div class="bookmark-button mr-2 mt-2">
               <% if Bookmark.find_by(spot: @spot, user: current_user)%>
@@ -67,13 +68,18 @@
             </div>
           </div>
 
-      </div>
+          </div>
 
-          <div class="description-show" style="height: 14vh;">
+          <div class="description-show" style="height: 16vh;">
             <p> <%= @spot.description %> </p>
           </div>
 
-          <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px; box-shadow: 0px 4px 13px -1px #d3d4da;"><i class="far fa-calendar-alt"></i>Add to Calendar</a>
+            <div class="sun-hours-show d-flex justify-content-center">
+              <span class="sun-show-icon">&#9788;</span>
+              <p style="font-weight: 100; padding-left: 10px; padding-top: 2px;"><%= @spot.time_difference[:hour] %><%= @spot.time_difference[:minutes] %>h</p>
+            </div>
+
+          <a class="btn-small-navy mr-1 d-flex justify-content-between" href="/" style="font-size: 11px;"><i class="far fa-calendar-alt"></i></a>
         </div>
 
           <% @spot.photos.each do |photo| %>
