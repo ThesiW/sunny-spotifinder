@@ -46,12 +46,6 @@
   margin-left: 10px;
 }
 
-.opening-hours {
-  margin-bottom: 0px;
-  margin-left: 10px;
-  margin-top: 3px;
-}
-
 .stars-hours {
   margin-top: 17px;
   width: 100%;
@@ -72,12 +66,9 @@
   flex-flow: row;
   width:100%;
 }
+
 .user-rating {
   font-size:10px;
-}
-
-.review-card {
-
 }
 
 .review-div {
@@ -247,6 +238,7 @@
   width: 95%;
   margin-left: 9px;
   margin-top: 5px;
+  margin-bottom: 8px;
 }
 
 .br-wrapper {
@@ -262,7 +254,6 @@
   margin-top: 10px;
   color: black;
   box-shadow: 0px 4px 13px -1px #D3D4DA;
-  height: 25vh;
   border-radius: 8px;
   position: relative;
   margin-bottom: 15px;
@@ -390,6 +381,8 @@
   margin-left: 12px;
   margin-right: 12px;
   padding: 0px;
+  overflow: hidden;
+
 }
 
 .bookmark-button i {
