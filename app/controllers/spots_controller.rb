@@ -88,15 +88,15 @@ require 'time'
     #   @sunny_times << row[5]
     # end
 
-    @sunny_from_index = @sunny_times.index{ |s| s == 'True' }
-    @sunny_until_index = @sunny_times.rindex { |s| s == 'True' }
+    #@sunny_from_index = @sunny_times.index { |s| s == 'True' }
+    #@sunny_until_index = @sunny_times.index { |s| s == 'True' }
 #converts the position in the array to a datetime
-    @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index))) if @sunny_from_index != nil
-    @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index))) if @sunny_until_index != nil
-    @spot.sun_start = @sunny_from_datetime.strftime("%H:%M") if @sunny_from_index != nil
-    @spot.sun_end = @sunny_until_datetime.strftime("%H:%M") if @sunny_until_index != nil
-    @spot.save
-    raise
+    #@sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index))) if @sunny_from_index != nil
+    #@sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index))) if @sunny_until_index != nil
+    #@spot.sun_start = @sunny_from_datetime.strftime("%H:%M") if @sunny_from_index != nil
+    #@spot.sun_end = @sunny_until_datetime.strftime("%H:%M") if @sunny_until_index != nil
+    #@spot.save
+    #raise
   end
 
 
