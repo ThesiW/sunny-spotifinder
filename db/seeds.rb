@@ -159,12 +159,12 @@ html_doc.search('.explore-item').each do |element|
     spot.save
    end
 
-   comments = ["will definitely go there again amazing food, crispy chicken with chiled beer in there sunny spot must try",
-                "Amazing food, super friendly staff if you want to enjoy the sun and a brunch definitely recommended",
+   comments = ["very disappointed chicken was oily outdoor area wasn't sunny ",
+                "it's not super good decent place.",
                 "To who may it concern.
-                  Lovely brunch and staff made me feel like home in Louisiana! love those salad. for sure we return",
+                  Lovely brunch and staff made me feel like home in Louisiana! love those salad was little soggy. for sure we return",
                 "Ooohh my god what an amazing brunch in a sun I wonder is it always that sunny there :p",
-                  "Delicious, fresh food and super nice staff! Highly recommend!!"]
+                  "will definitely go there again amazing food, crispy chicken with chiled beer in there sunny spot must try!"]
    rating = rand(1..5)
    claire_rating = rand(1..5)
    ana_rating = rand(1..5)
