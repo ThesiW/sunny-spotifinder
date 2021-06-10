@@ -81,7 +81,6 @@ html_doc.search('.explore-item').each do |element|
    name: spot_name,
    address: spot_address,
    rating: rand(1..5),
-   hours: hours,
    description: spot_description,
    sun_start: sun_hour_start,
    sun_end: sun_end
