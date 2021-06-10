@@ -1,5 +1,7 @@
 require 'csv'
 require 'date'
+require 'pycall/import'
+include PyCall::Import
 
 class SpotsController < ApplicationController
 
@@ -43,49 +45,49 @@ require 'time'
     @favourite = Favourite.new
     @visit = Visit.new
 
+
+
+#here comes logic related to backend python sun calculations
     csv_options = { col_sep: ',', force_quotes: true, quote_char: '"' }
 
-# input to python
-    filepath = 'app/controllers/file.csv'
-    a = Time.now.to_i
-    b = "#{Date.today} 23:59".to_datetime.to_i
+# input/output-file python
+    filepath = 'lib/assets/python/user_data.csv'
 
+    a = Time.now.to_i
+    # b = "#{Date.tomorrow} 21:59".to_datetime.to_i
+    b = Time.now.to_i
     @times = []
     time = a
 
-    while time < b do
+    while time <= b do
       @times << (time - a) / 60
       time += 1800
     end
 
-    CSV.open('app/controllers/input.csv', 'w') do |csv|
+    CSV.open('lib/assets/python/user_data.csv', 'w') do |csv|
+    # headers = ['user_lat', 'user_long', 'when_days', 'when_hours', 'when_minutes', 'sun_shine']
+    # csv << headers
       @times.each do |row|
-        csv << [@spot.latitude, @spot.longitude, row]
+        csv << [@spot.latitude, @spot.longitude, "0", "0", row, "unknown"]
       end
     end
 
+    `python lib/assets/python/sun_visibility.py`
+
 # output from python
-    filepath = 'app/controllers/output.csv'
     @sunny_times = []
     CSV.foreach(filepath) do |row|
-      @sunny_times << row[3]
+      @sunny_times << row[5]
     end
 
-    # @sunny_now = false
-
-    # if @sunny_times[0] == 'true'
-    #   @sunny_now = true
-    # else
-    #   @sunny_now = false
-    # end
-
-    #sunny_from will say from now if it is sunny now
-    @sunny_from_index = @sunny_times.index{ |s| s == 'true' }
-    @sunny_until_index = @sunny_times.rindex { |s| s == 'true' }
-    #converts the position in the array to a datetime
-    @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index)))
-    @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index)))
-
+#sunny_from will say from now if it is sunny now
+    @sunny_from_index = @sunny_times.index{ |s| s == 'True' }
+    @sunny_until_index = @sunny_times.rindex { |s| s == 'True' }
+#converts the position in the array to a datetime
+    @sunny_from_datetime = Time.at((Time.now.to_i + (1800 * @sunny_from_index))) if @sunny_from_index != nil
+    @sunny_until_datetime = Time.at((Time.now.to_i + (1800 * @sunny_until_index))) if @sunny_until_index != nil
+    @spot.sun_start = @sunny_from_datetime.strftime("%H:%M") if @sunny_from_index != nil
+    @spot.sun_end = @sunny_until_datetime.strftime("%H:%M") if @sunny_until_index != nil
   end
 
 
