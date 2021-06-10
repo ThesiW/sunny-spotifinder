@@ -9,9 +9,7 @@
 }
 
 .scrollable{
-  height:100vh;
   overflow:scroll;
-  margin-bottom:100px;
 }
 
 .fa-plus-square {
@@ -55,11 +53,11 @@
 .description-show {
   font-size: 12px;
   width: 44%;
-  position: absolute;
   right: 0;
-  top: 69px;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: 100px;
+  overflow: auto;
 }
 
 .bookmark-favourite {
@@ -188,7 +186,7 @@
   width: 45%;
   margin-left: 8px;
   position: absolute;
-  top: 162px;
+  bottom: 26px;
   left: 15px;
 }
 
