@@ -108,12 +108,21 @@
                     <div class="author">
                       <div class="avatar-bordered-reviews small" >
                         <% if user_signed_in? %>
-                            <%= cl_image_tag current_user.user_picture, class: "avatar-img" %>
+                            <%= cl_image_tag review.user.user_picture, class: "avatar-img" %>
                         <% end %>
                       </div>
                       <div class="username-review" style="padding-top: 10px; padding-left: 10px">
-                        <%= current_user.username %>
+                        <%= review.user.username %>
+                        <div class="review-rating ">
+                          <% review.rating.to_i.times do %>
+                            <i class="fas fa-star"></i>
+                          <% end %>
+                          <% (5 - review.rating.to_i).times do %>
+                            <i class="far fa-star"></i>
+                          <% end %>
+                        </div>
                       </div>
+
                     </div>
                       <div class="comment-review">
                         "<%= review.comment %>"

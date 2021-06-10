@@ -78,6 +78,13 @@
   margin-left: 10px;
 }
 
+.review-rating {
+  display: flex;
+  flex-flow:row;
+  align-items: center;
+  font-size:12px;
+}
+
 .review-container {
   display:flex;
   flex-flow: column;
@@ -242,6 +249,7 @@
   position: relative;
   margin-bottom: 15px;
   padding-top: 10px;
+  overflow: auto;
 }
 
 .comment-review {
