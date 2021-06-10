@@ -54,7 +54,7 @@ html_doc.search('.explore-item').each do |element|
      html_file2 = URI.open(spot_link).read
      html_doc2 = Nokogiri::HTML(html_file2)
      hours = html_doc2.search('.opening-hour').first.text if html_doc2.search('.opening-hour').first
-     spot_description = html_doc2.search('.body-text > p:nth-child(2)').text.first(65)
+     spot_description = html_doc2.search('.body-text > p:nth-child(2)').text
 
      p spot_description
 
@@ -66,17 +66,28 @@ html_doc.search('.explore-item').each do |element|
    if spot_picture == nil
      spot_picture = "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
    end
+   if spot_description == nil
+     spot_description = "Beställ en saftig variant med cream cheese eller en lättare lunch och slå er sedan ned på uteserveringen som är perfekt för soliga dagar."
+   end
 
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    puts "Name of the spot: #{spot_name}"
+
    # puts "Address of the spot: #{spot_address}"
+   puts "Address of the spot: #{spot_address}"
+   sun_hour_start = "#{rand(7..11)}:#{rand(10..59)}"
+   sun_end = "#{rand(17..21)}:#{rand(10..59)}"
    spot = Spot.new(
    name: spot_name,
    address: spot_address,
    rating: rand(1..5),
    hours: hours,
-   description: spot_description
+   description: spot_description,
+   sun_start: sun_hour_start,
+   sun_end: sun_end
    )
+
+   spot.hours = hours unless hours.nil?
 
    spot.photos.attach(io: URI.open(spot_picture), filename: 'picture', content_type: 'image/jpg') if spot_picture
    spot.save
