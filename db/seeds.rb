@@ -292,7 +292,9 @@ html_doc.search('.explore-item').each do |element|
    if spot_picture == nil
      spot_picture = "https://images.unsplash.com/photo-1552566626-52f8b828add9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
    end
-
+   if spot_description == nil
+     spot_description = "Beställ en saftig variant med cream cheese eller en lättare lunch och slå er sedan ned på uteserveringen som är perfekt för soliga dagar."
+   end
 
    puts "Name of the spot: #{spot_name}"
    puts "Address of the spot: #{spot_address}"
