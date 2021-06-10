@@ -10,4 +10,3 @@ const dropup = () => {
 
 
 export {dropup}
-
