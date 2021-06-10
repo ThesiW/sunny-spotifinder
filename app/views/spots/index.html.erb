@@ -26,14 +26,21 @@
               <%= link_to spot_path(spot) do %>
               <div class="spot-index-card container grid-container mr-3 mt-3">
                 <h3 class="mb-0 pt-3"><%= spot.name %></h3>
+
+
+
                 <div class="d-flex justify-content-evenly justify-content-between mt-2">
                   <div class="spot-index-img h-100">
                     <%= cl_image_tag spot.photos.first.key, crop: :fit if spot.photos.attached? %>
                   </div>
                   <div class="spot-index-infos flex-column justify-content-center h-100 w-100 pb-0 ml-3">
                     <div class="spot-index-details">
-                      <!-- <p class="d-flex justify-content-center" style="font-size: 20px"><b><#%= spot.time_difference[:hour] %><#%= spot.time_difference[:minutes] %>h of sun</b></p> -->
-                         <p class="d-flex justify-content-center" style="font-weight: 100"> <%= spot.hours %></p>
+<!--
+ -->
+                  <div class="sun-hours d-flex justify-content-center">
+                    <span class="sun-index-icon">&#9788;</span>
+                    <p style="font-weight: 100;"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+                  </div>
 
                      <div class="description-index">
                       <p> <%= spot.description.first(71) + "..." if spot.description %></p>

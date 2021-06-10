@@ -1,7 +1,7 @@
 require 'csv'
 require 'date'
-require 'pycall/import'
-include PyCall::Import
+# require 'pycall/import'
+# include PyCall::Import
 
 class SpotsController < ApplicationController
 
@@ -30,10 +30,10 @@ require 'time'
 
   def show
     @spot = Spot.find(params[:id])
+    @review = Review.new
 
     if @spot.geocoded?
 
-    @review = Review.new
     @markers =
       [{
         lat: @spot.latitude,

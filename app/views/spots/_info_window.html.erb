@@ -1,5 +1,12 @@
 
 <div class="marker">
   <h2 class="map-spot-name"><%= spot.name %></h2>
-<!--   <p class="map-spot-sun-hours"><%#= spot.time_difference[:hour] %><%#= spot.time_difference[:minutes] %>h of sun</p>
- --></div>
+  <div class="sun-hours-map d-flex justify-content-center">
+    <p class="map-spot-sun-hours" style="font-weight: 100;"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+  </div>
+</div>
+
+
+
+<!--   <p class="map-spot-sun-hours"><span class="sun-index-icon">&#9788;</span><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+ -->

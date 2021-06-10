@@ -11,6 +11,26 @@ thesi = User.create(email: "theresa@gmail.com", password: "123456", username: "T
 samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami", intake: 0)
 vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "vincent", intake: 0)
 
+pic_four = URI.open('https://kitt.lewagon.com/placeholder/users/claire-gtr')
+claire = User.create(email: "claire@gmail.com", password: "123456", username: "claireG", intake:0)
+claire.picture.attach(io: pic_four, filename: 'nes.png', content_type: 'image/png')
+
+pic_six = URI.open('https://kitt.lewagon.com/placeholder/users/anacolell')
+ana = User.create(email:"ana@gmail.com", password: "123456", username: "ana", intake: 0)
+ana.picture.attach(io: pic_six, filename: 'nes.png', content_type: 'image/png')
+
+pic_seven = URI.open('https://kitt.lewagon.com/placeholder/users/brittafe')
+britta = User.create(email: "britta@gmail.com", password: "123456", username: "britta", intake:0)
+britta.picture.attach(io: pic_seven, filename: 'nes.png', content_type: 'image/png')
+
+pic_eight = URI.open('https://kitt.lewagon.com/placeholder/users/danielareijs')
+daniela = User.create(email: "daniela@gmail.com", password: "123456", username: "dani", intake:0)
+daniela.picture.attach(io: pic_eight, filename: 'nes.png', content_type: 'image/png')
+
+pic_ten = URI.open('https://kitt.lewagon.com/placeholder/users/dittojoe')
+joe = User.create(email: "joe@gmail.com", password: "123456", username: "joseph", intake:0)
+joe.picture.attach(io: pic_ten, filename: 'nes.png', content_type: 'image/png')
+
 require 'open-uri'
 require 'nokogiri'
 url = "https://www.google.fr/maps/search/caf%C3%A9/@59.316308,18.0746053,14z/data=!3m1!4b1"
@@ -22,13 +42,13 @@ html_doc = Nokogiri::HTML(html_file)
 p "I am here+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 html_doc.search('.explore-item').each do |element|
-  p "starting ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+  # p "starting ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
    spot_number = element.search('span')[1].text if element.search('span')[1].present?
    spot_name = element.search('span')[2].text.first(20) if element.search('span')[2].present?
    spot_address = element.search('span')[3].text if element.search('span')[3].present?
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    spot_link = element.search(".profile-link").attr('href').value
-   p spot_link
+   p spot_picture
    p spot_link = "https://thatsup.se" + spot_link
    if spot_link.ascii_only?
      html_file2 = URI.open(spot_link).read
@@ -52,6 +72,8 @@ html_doc.search('.explore-item').each do |element|
 
    spot_picture = element.search(".float-right").search("img").attr('src').value if element.search(".float-right").search("img").present?
    puts "Name of the spot: #{spot_name}"
+
+   # puts "Address of the spot: #{spot_address}"
    puts "Address of the spot: #{spot_address}"
    sun_hour_start = "#{rand(7..11)}:#{rand(10..59)}"
    sun_end = "#{rand(17..21)}:#{rand(10..59)}"
@@ -59,7 +81,6 @@ html_doc.search('.explore-item').each do |element|
    name: spot_name,
    address: spot_address,
    rating: rand(1..5),
-   hours: hours,
    description: spot_description,
    sun_start: sun_hour_start,
    sun_end: sun_end
@@ -68,20 +89,26 @@ html_doc.search('.explore-item').each do |element|
    spot.hours = hours unless hours.nil?
 
    spot.photos.attach(io: URI.open(spot_picture), filename: 'picture', content_type: 'image/jpg') if spot_picture
-   spot.save if element.search(".float-right").search("img").present?
+   spot.save
+   p "INFOS"
    p spot.valid?
+   p spot.errors.message unless spot.valid?
    p spot
+   p "------------"
    if spot_name == "Cykelcafé Le Mond"
     spot.latitude = 59.31449142762766
     spot.longitude = 18.079939340863586
     spot.save
    end
-   p "over ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+   # p "over ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
    if spot_name == "Kaferang"
     spot.latitude = 59.312839129751545
     spot.longitude = 18.083514259061587
     spot.save
+    # pic_four = URI.open('https://kitt.lewagon.com/placeholder/users/claire-gtr')
+    # claire = User.create(review:"Best food I ever had." )
+    # claire.picture.attach(io: pic_four, filename: 'nes.png', content_type: 'image/png')
    end
    if spot_name == "Älskade Traditioner"
     spot.latitude = 59.31103965115214
@@ -136,6 +163,26 @@ html_doc.search('.explore-item').each do |element|
     spot.longitude = 18.09082762414505
     spot.save
    end
+
+   comments = ["very disappointed chicken was oily outdoor area wasn't sunny ",
+                "it's not super good decent place.",
+                "To who may it concern.
+                  Lovely brunch and staff made me feel like home in Louisiana! love those salad was little soggy. for sure we return",
+                "Ooohh my god what an amazing brunch in a sun I wonder is it always that sunny there :p",
+                  "will definitely go there again amazing food, crispy chicken with chiled beer in there sunny spot must try!"]
+   rating = rand(1..5)
+   claire_rating = rand(1..5)
+   ana_rating = rand(1..5)
+   britta_rating = rand(1..5)
+   dani_rating = rand(1..5)
+   joseph_rating = rand(1..5)
+
+  Review.create(rating:rating,comment:comments[rating - 1],spot:spot,user:samir) if spot.save
+  Review.create(rating:claire_rating,comment:comments[claire_rating - 1],spot:spot,user:claire) if spot.save
+  Review.create(rating:ana_rating,comment:comments[ana_rating - 1],spot:spot,user:ana) if spot.save
+  Review.create(rating:britta_rating,comment:comments[britta_rating - 1],spot:spot,user:britta) if spot.save
+  Review.create(rating:dani_rating,comment:comments[dani_rating - 1],spot:spot,user:daniela) if spot.save
+  Review.create(rating:joseph_rating,comment:comments[joseph_rating - 1],spot:spot,user:joe) if spot.save
  end
 
 
