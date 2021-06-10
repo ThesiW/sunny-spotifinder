@@ -13,7 +13,8 @@
   <div class="container mt-2" style="margin-bottom: 80px;">
     <div class="row">
       <div class="col-sm-8 offset-sm-2">
-         <a class="btn-navy-index mb-0 d-flex justify-content-center mt-6" href="/spots/randomise" style="font-size: 16px; width: 84%">Can't decide?</a>
+         <a class="btn-navy-index mb-0 d-flex justify-content-center mt-6" href="/spots/668" style="font-size: 16px; width: 84%">Can't decide?</a>
+
         <div
           id="map"
           style="width: 100%; height: 22vh; border-radius: 8px; color: black; margin-top: 18px; box-shadow: 0px 4px 13px -1px #d3d4da;"
@@ -39,7 +40,7 @@
  -->
                   <div class="sun-hours d-flex justify-content-center">
                     <span class="sun-index-icon">&#9788;</span>
-                    <p style="font-weight: 100;"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+                    <p class="sun-hours-index"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
                   </div>
 
                      <div class="description-index">

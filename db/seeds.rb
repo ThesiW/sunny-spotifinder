@@ -6,7 +6,7 @@ Favourite.destroy_all
 Spot.destroy_all
 User.destroy_all
 
-max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "Max", intake: 0)
+# max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "Max", intake: 0)
 thesi = User.create(email: "theresa@gmail.com", password: "123456", username: "ThesiW", intake: 0)
 samir = User.create(email: "samir@gmail.com", password: "123456", username: "Sami", intake: 0)
 vincent = User.create(email:"vincent@gmail.com", password: "123456", username: "vincent", intake: 0)
@@ -30,6 +30,11 @@ daniela.picture.attach(io: pic_eight, filename: 'nes.png', content_type: 'image/
 pic_ten = URI.open('https://kitt.lewagon.com/placeholder/users/dittojoe')
 joe = User.create(email: "joe@gmail.com", password: "123456", username: "joseph", intake:0)
 joe.picture.attach(io: pic_ten, filename: 'nes.png', content_type: 'image/png')
+
+pic_five = URI.open('https://kitt.lewagon.com/placeholder/users/rappmax')
+max = User.create(email: "maxrapp@gmail.com", password: "123456", username: "Max", intake:0)
+max.picture.attach(io: pic_five, filename: 'nes.png', content_type: 'image/png')
+
 
 require 'open-uri'
 require 'nokogiri'
@@ -176,6 +181,8 @@ html_doc.search('.explore-item').each do |element|
    britta_rating = rand(1..5)
    dani_rating = rand(1..5)
    joseph_rating = rand(1..5)
+   max_rating = rand(1..5)
+
 
   Review.create(rating:rating,comment:comments[rating - 1],spot:spot,user:samir) if spot.save
   Review.create(rating:claire_rating,comment:comments[claire_rating - 1],spot:spot,user:claire) if spot.save
@@ -183,6 +190,7 @@ html_doc.search('.explore-item').each do |element|
   Review.create(rating:britta_rating,comment:comments[britta_rating - 1],spot:spot,user:britta) if spot.save
   Review.create(rating:dani_rating,comment:comments[dani_rating - 1],spot:spot,user:daniela) if spot.save
   Review.create(rating:joseph_rating,comment:comments[joseph_rating - 1],spot:spot,user:joe) if spot.save
+  Review.create(rating:max_rating,comment:comments[max_rating - 1],spot:spot,user:max) if spot.save
  end
 
 
