@@ -158,6 +158,12 @@ html_doc.search('.explore-item').each do |element|
     spot.save
    end
 
+   if spot_name == "Bazzar"
+    spot.latitude = 59.31368322421927
+    spot.longitude = 18.09082762414505
+    spot.save
+   end
+
    comments = ["very disappointed chicken was oily outdoor area wasn't sunny ",
                 "it's not super good decent place.",
                 "To who may it concern.
