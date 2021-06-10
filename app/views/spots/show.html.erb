@@ -38,7 +38,6 @@
                 <i class="far fa-star"></i>
               <% end %>
               </div>
-            <p class="opening-hours" style="font-weight: 100"><%= @spot.hours %></p>
           </div>
 
 
@@ -70,9 +69,17 @@
 
           </div>
 
+
+        
           <div class="description-show" style="height: 13vh;">
+
             <p> <%= @spot.description %> </p>
           </div>
+
+            <div class="opening-hours-show">
+              <!-- <p style="font-size: 10px; margin-bottom: 0px;">Opening Hours:</p> -->
+              <p style="font-weight: 200;"><%= @spot.hours %></p>
+            </div>
 
             <div class="sun-hours-show d-flex justify-content-center">
               <span class="sun-show-icon">&#9788;</span>
