@@ -17,6 +17,19 @@
 
 }
 
+
+.favourite-name {
+  position: relative;
+}
+
+
+.sun-favourite {
+  font-size: 25px;
+  color: #D3D4DA;
+  position: absolute;
+  right: 0;
+}
+
 .spot-favourite-img img {
   display: flex;
   height: 100%;
@@ -75,8 +88,4 @@
   width: 140%;
 }
 
-.sun-favourite {
-  font-size: 25px;
-  color: #D3D4DA;
 
-}
