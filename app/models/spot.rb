@@ -27,7 +27,10 @@ class Spot < ApplicationRecord
         minutes: difference_minutes
       }
     else
-      "No sun until tomorrow"
+      {
+        hour: 0,
+        minutes: 0
+      }
     end
   end
 end
