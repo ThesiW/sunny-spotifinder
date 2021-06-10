@@ -36,8 +36,7 @@
                          <p class="d-flex justify-content-center" style="font-weight: 100"> <%= spot.hours %></p>
 
                      <div class="description-index">
-                      <p> <%= spot.description + "..." if spot.description %></p>
-
+                      <p> <%= spot.description.first(71) + "..." if spot.description %></p>
                     </div>
 
                       <div class="stars-index d-flex justify-content-center">

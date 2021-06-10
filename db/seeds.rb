@@ -34,7 +34,7 @@ html_doc.search('.explore-item').each do |element|
      html_file2 = URI.open(spot_link).read
      html_doc2 = Nokogiri::HTML(html_file2)
      hours = html_doc2.search('.opening-hour').first.text if html_doc2.search('.opening-hour').first
-     spot_description = html_doc2.search('.body-text > p:nth-child(2)').text.first(65)
+     spot_description = html_doc2.search('.body-text > p:nth-child(2)').text
 
      p spot_description
 
