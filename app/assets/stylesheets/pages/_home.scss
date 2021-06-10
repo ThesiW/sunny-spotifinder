@@ -1,17 +1,17 @@
 // Specific CSS for your home-page
-
 .logo {
   vertical-align: middle;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   position: absolute;
-  right: 0px;
-  top: 0px
+  right: 14px;
+  top: 8px
 }
 
 h2 {
   color: black;
+  font-size: 30px;
 }
 
 .homepage-body {
@@ -24,9 +24,6 @@ h2 {
   overflow-x: hidden;
 }
 
-// .homepage-body {
-//   background-color: #F5FCFF;
-// }
 #description {
   font-size: 16px;
   margin-bottom: 0;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_113852) do
+ActiveRecord::Schema.define(version: 2021_06_09_110820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_06_06_113852) do
     t.float "latitude"
     t.float "longitude"
     t.string "review"
+    t.string "hours", default: "9:00 - 16:30h"
   end
 
   create_table "users", force: :cascade do |t|

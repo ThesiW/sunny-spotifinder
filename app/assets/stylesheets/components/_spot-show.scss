@@ -8,23 +8,57 @@
   top: 0px
 }
 
+.scrollable{
+  overflow:scroll;
+}
+
+.fa-plus-square {
+  color: #243860;
+  font-size: 30px;
+  margin-left: 10px;
+}
 
 .show-body {
   background-color: #F5FCFF;
 }
+
 .favourite-top {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
 }
+
 .ratings {
   display: flex;
   flex-flow: row;
+  width:100%;
 }
-.user-rating{
+.user-rating {
   font-size:10px;
 }
 
+.review-card {
+
+}
+
+.review-div {
+  display:flex;
+  flex-flow:column;
+  height:auto;
+  width:100%;
+}
+
+
+
+.description-show {
+  font-size: 12px;
+  width: 44%;
+  right: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 100px;
+  overflow: auto;
+}
 
 .bookmark-favourite {
   display: flex;
@@ -43,21 +77,25 @@
   align-items: center;
   margin-left: 10px;
 }
+
 .review-container {
   display:flex;
   flex-flow: column;
+  padding: 0px 5px 10px 10px;
   overflow-y:scroll;
-  padding: 10px;
-  height: 100px;
-  width: 50%;
+  height: 100%;
+  width: 100%;
 
   &.btn {
   padding: 0;
   margin-top: -20px;
   overflow-y: none;
   height: 100%;
-
 }
+}
+
+.username-review {
+
 }
 
 .review-row {
@@ -65,23 +103,25 @@
   flex-flow: column;
   width: 100%;
   margin: 5px 0;
-
+}
   .author {
-   display: flex;
+  display: flex;
   flex-flow: row;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 200;
   margin-left: -10px;
-}
-.comment{
-      display: flex;
+
+  &.comment {
+  display: flex;
   flex-flow: row;
-  font-size:12px;
+  font-size: 12px;
+
 }
 }
 
-.review-titlte{
-  margin-left:10px;
+.review-titlte {
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .show-name h1 {
@@ -122,8 +162,102 @@
   border-radius: 8px;
 }
 
-.carousel-item img {
+.picture-card {
+  height: 20vh;
+}
+
+.description-show {
+  font-size: 12px;
+  width: 44%;
+  position: absolute;
+  right: 0;
+  top: 51px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.picture-item img {
   object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.picture-item {
+  width: 45%;
+  margin-left: 8px;
+  position: absolute;
+  bottom: 26px;
+  left: 15px;
+}
+
+.select {
+  margin-bottom: 0px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  margin: 10px 10px 5px 10px;
+}
+
+.btn-navy-form {
+  color: white;
+  background-color: #243860;
+  border: 2px solid #243860;
+  border-radius: 8px;
+  padding: 3px;
+  text-transform: uppercase;
+  box-shadow: 2px 3px 4px grey;
+  width: 95%;
+  margin-left: 9px;
+  margin-top: 5px;
+}
+
+.br-wrapper {
+  margin-left: 20px;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+
+}
+
+.review-card {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+  box-shadow: 0px 4px 13px -1px #D3D4DA;
+  height: 25vh;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.show-review-card {
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+  box-shadow: 0px 4px 13px -1px #D3D4DA;
+  height: 40vh;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 15px;
+  padding-top: 10px;
+}
+
+.comment-review {
+  padding-top: 5px;
+}
+
+.avatar-bordered-reviews {
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  height: 40px;
+  width: 40px;
+  overflow: hidden;
+  margin-top: 5px;
+  display:flex;
+  justify-content:center;
 }
 
 
@@ -132,9 +266,10 @@
   margin-top: 10px;
   color: black;
   box-shadow: 0px 4px 13px -1px #D3D4DA;
-  height: 25vh;
+  height: 30vh;
   border-radius: 8px;
   position: relative;
+  margin-bottom: 15px;
 }
 
 .btn-navy-show {
@@ -152,6 +287,10 @@
   text-align: center;
 }
 
+.form-control {
+  border-radius: 8px;
+}
+
 .btn-small {
   color: black;
   background-color: #BBDEF0;
@@ -165,15 +304,17 @@
 }
 
 .btn-small-navy {
-background-color: #243860;
- text-transform: uppercase;
+  background-color: #243860;
+  text-transform: uppercase;
   border-radius: 8px;
-  padding: 8px;
+  padding: 7px;
   margin-top: 5px;
-  width: 100%;
+  width: 43%;
   text-align: center;
-    color: white;
-
+  color: white;
+  position: absolute;
+  bottom: 10px;
+  right: 4px;
 }
 
 .btn-main-show {
@@ -196,7 +337,7 @@ background-color: #243860;
 }
 
 .fa-calendar-alt {
-  font-size: 20px;
+  font-size: 17px;
   padding-right: 2px;
 }
 
@@ -209,6 +350,7 @@ background-color: #243860;
   border-radius: 8px;
   margin-left: 12px;
   margin-right: 12px;
+  padding: 0px;
 }
 
 .bookmark-button i {
