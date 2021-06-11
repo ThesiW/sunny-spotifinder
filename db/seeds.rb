@@ -187,10 +187,10 @@ html_doc.search('.explore-item').each do |element|
   Review.create(rating:rating,comment:comments[rating - 1],spot:spot,user:samir) if spot.save
   Review.create(rating:claire_rating,comment:comments[claire_rating - 1],spot:spot,user:claire) if spot.save
   Review.create(rating:ana_rating,comment:comments[ana_rating - 1],spot:spot,user:ana) if spot.save
+  Review.create(rating:max_rating,comment:comments[max_rating - 1],spot:spot,user:max) if spot.save
   Review.create(rating:britta_rating,comment:comments[britta_rating - 1],spot:spot,user:britta) if spot.save
   Review.create(rating:dani_rating,comment:comments[dani_rating - 1],spot:spot,user:daniela) if spot.save
   Review.create(rating:joseph_rating,comment:comments[joseph_rating - 1],spot:spot,user:joe) if spot.save
-  Review.create(rating:max_rating,comment:comments[max_rating - 1],spot:spot,user:max) if spot.save
  end
 
 
