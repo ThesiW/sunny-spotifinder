@@ -23,7 +23,7 @@
 
                       <div class="sun-hours d-flex justify-content-center">
                         <span class="sun-index-icon">&#9788;</span>
-                        <p style="font-weight: 100;"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
+                        <p style="font-weight: 400;"><%= spot.time_difference[:hour] %><%= spot.time_difference[:minutes] %>h of sun</p>
                       </div>
 
                        <div class="description-index mt-3">
@@ -46,18 +46,14 @@
             <% end %>
           </div>
 
-
-
-
-
-
-
        <div class="favourite-map">
         <div
           id="map"
           style="width: 100%; height: 21vh; border-radius: 8px;"
           data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-center="[18.072545, 59.313682]"
+          data-zoom="12">
         </div>
       </div>
     </div>

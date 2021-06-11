@@ -52,7 +52,9 @@
           id="map"
           style="width: 100%; height: 21vh; border-radius: 8px;"
           data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-center="[18.072545, 59.313682]"
+          data-zoom="12">
         </div>
       </div>
     </div>
