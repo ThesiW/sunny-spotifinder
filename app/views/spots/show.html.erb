@@ -92,7 +92,9 @@
           id="map"
           style="width: 100%; height: 22vh; border-radius: 8px; box-shadow: 0px 4px 13px -1px #d3d4da; padding: 0px; margin-left: 0px"
           data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          data-zoom="15"
+          data-center="[<%= @spot.longitude %>, <%= @spot.latitude %>]">
         </div>
 
         <div class="review-card">
@@ -144,11 +146,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 
 
 
