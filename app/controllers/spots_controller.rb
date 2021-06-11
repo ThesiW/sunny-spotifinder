@@ -106,10 +106,11 @@ require 'time'
   #   @spot.pop
   # end
 
-   #  def randomise
-   #   @spot = Spot.order("RANDOM()").first
-   #   redirect_to spot_path(@spot)
-   # end
+    def randomise
+     @spot = Spot.all.select{|spot|spot.name.length < 10}.sample
+
+     redirect_to spot_path(@spot)
+   end
 
   def search
     @spot = Spot.find(params[:query])
